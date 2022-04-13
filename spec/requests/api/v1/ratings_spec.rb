@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Api::V1::Ratings", type: :request do
+RSpec.describe 'Api::V1::Ratings', type: :request do
   describe '/GET index' do
     before do
+      create(:user, id: 1) # referenciando relação
       create(:rating, value: 3)
       create(:rating, value: 5)
       get '/api/v1/ratings/index'
@@ -10,8 +13,10 @@ RSpec.describe "Api::V1::Ratings", type: :request do
 
     it { expect(response).to have_http_status(:ok) }
   end
+
   describe '/GET #show' do
     let(:avaliacao) { create(:rating) }
+    before { create(:user, id: 1) } # referenciando relação
     context 'when rating exist' do
       before do
         create(:rating, value: 2)
@@ -35,11 +40,13 @@ RSpec.describe "Api::V1::Ratings", type: :request do
   describe 'POST /Create' do
     let(:params) do
       {
-        user_id: 3,
-        music_id: 7,
+        user_id: 1,
+        # music_id: 7,
         value: 4
       }
     end
+
+    before { create(:user, id: 1) } # referenciando relação
 
     context 'with valid params' do
       before do
@@ -51,7 +58,7 @@ RSpec.describe "Api::V1::Ratings", type: :request do
       end
 
       it 'creates the rating' do
-        new_rating = Rating.find_by(user_id: 3)
+        new_rating = Rating.find_by(user_id: 1)
         expect(new_rating).not_to be_nil
       end
     end
@@ -59,6 +66,8 @@ RSpec.describe "Api::V1::Ratings", type: :request do
 
   describe 'DELETE /delete' do
     let(:avaliacao) { create(:rating, id: 1) }
+
+    before { create(:user, id: 1) } # referenciando relação
 
     context 'when rating exist' do
       before { delete "/api/v1/ratings/delete/#{avaliacao.id}" }
@@ -81,6 +90,8 @@ RSpec.describe "Api::V1::Ratings", type: :request do
   end
 
   describe 'PUT /update' do
+    before { create(:user, id: 1) } # referenciando relação
+
     let(:avaliacao) { create(:rating, value: 0) }
     context 'when rating exists' do
       before do

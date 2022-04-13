@@ -1,24 +1,195 @@
-Started GET "/" for ::1 at 2022-03-30 20:00:58 -0300
-  [1m[35m (14.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-Processing by Rails::WelcomeController#index as HTML
-  Rendering /home/adriano/.rvm/gems/ruby-2.7.2/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /home/adriano/.rvm/gems/ruby-2.7.2/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 17.1ms | Allocations: 667)
-Completed 200 OK in 87ms (Views: 28.7ms | ActiveRecord: 0.0ms | Allocations: 6367)
-
-
-  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
-  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateRatings (20220412011451)
+  [1m[35m (9.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (99.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (73.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20220413140721)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "name" varchar, "is_admin" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220413140721"]]
+  [1m[36mTRANSACTION (84.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "music_id" integer, "value" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220412011451"]]
-  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-12 01:16:27.592354"], ["updated_at", "2022-04-12 01:16:27.592354"]]
-  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-13 14:14:27.198499"], ["updated_at", "2022-04-13 14:14:27.198499"]]
+  [1m[36mTRANSACTION (81.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddTokenToUser (20220413141910)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "authentication_token" varchar(30)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_authentication_token" ON "users" ("authentication_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220413141910"]]
+  [1m[36mTRANSACTION (114.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/users/index" for 127.0.0.1 at 2022-04-13 11:27:45 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"name"=>"jjo", "password"=>"[FILTERED]", "is_admin"=>false, "user"=>{"name"=>"jjo", "password"=>"[FILTERED]", "is_admin"=>false}}
+Completed 401 Unauthorized in 25ms (ActiveRecord: 0.0ms | Allocations: 1283)
+
+
+Started GET "/" for 127.0.0.1 at 2022-04-13 11:27:45 -0300
+Processing by Rails::WelcomeController#index as */*
+  Parameters: {"welcome"=>{}}
+  Rendering /home/victhor/.rvm/gems/ruby-3.0.2/gems/railties-6.1.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/victhor/.rvm/gems/ruby-3.0.2/gems/railties-6.1.5/lib/rails/templates/rails/welcome/index.html.erb (Duration: 32.6ms | Allocations: 518)
+Completed 200 OK in 106ms (Views: 48.3ms | ActiveRecord: 0.0ms | Allocations: 4441)
+
+
+Started GET "/api/v1/users/show" for 127.0.0.1 at 2022-04-13 11:28:32 -0300
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"name"=>"jjo", "password"=>"[FILTERED]", "is_admin"=>false, "user"=>{"name"=>"jjo", "password"=>"[FILTERED]", "is_admin"=>false}}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 202)
+
+
+Started GET "/" for 127.0.0.1 at 2022-04-13 11:28:32 -0300
+Processing by Rails::WelcomeController#index as */*
+  Parameters: {"welcome"=>{}}
+  Rendering /home/victhor/.rvm/gems/ruby-3.0.2/gems/railties-6.1.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/victhor/.rvm/gems/ruby-3.0.2/gems/railties-6.1.5/lib/rails/templates/rails/welcome/index.html.erb (Duration: 12.5ms | Allocations: 209)
+Completed 200 OK in 17ms (Views: 14.9ms | ActiveRecord: 0.0ms | Allocations: 1046)
+
+
+Started GET "/api/v1/users/create" for 127.0.0.1 at 2022-04-13 11:29:23 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/users/create"):
+  
+Started GET "/api/v1/users/create" for 127.0.0.1 at 2022-04-13 11:29:45 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/users/create"):
+  
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2022-04-13 11:29:54 -0300
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"jjo", "password"=>"[FILTERED]", "user"=>{"name"=>"jjo", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:29:in `create'
+Completed 500 Internal Server Error in 516ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 14351)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2022-04-13 11:30:26 -0300
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"jjo", "password"=>"[FILTERED]", "is_admin"=>false, "email"=>"chevroleide@mas", "user"=>{"name"=>"jjo", "password"=>"[FILTERED]", "email"=>"chevroleide@mas", "is_admin"=>false}}
+[31mUnpermitted parameter: :is_admin[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (26.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chevroleide@mas"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+Completed 500 Internal Server Error in 406ms (Views: 0.5ms | ActiveRecord: 26.6ms | Allocations: 4983)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2022-04-13 11:30:44 -0300
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"jjo", "password"=>"[FILTERED]", "is_admin"=>false, "email"=>"chevroleide@mas", "user"=>{"name"=>"jjo", "password"=>"[FILTERED]", "email"=>"chevroleide@mas", "is_admin"=>false}}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chevroleide@mas"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "EDcFyVt5hV2F_jsH-3sJ"]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Create (28.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "is_admin", "created_at", "updated_at", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "chevroleide@mas"], ["encrypted_password", "$2a$12$rwwmPCtksXSoJKjbF7e7QuCJfNor0p4Qdok9HdpiyShIP6yzHNJMK"], ["name", "jjo"], ["is_admin", 0], ["created_at", "2022-04-13 14:30:45.297333"], ["updated_at", "2022-04-13 14:30:45.297333"], ["authentication_token", "EDcFyVt5hV2F_jsH-3sJ"]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (84.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+Completed 201 Created in 520ms (Views: 1.4ms | ActiveRecord: 115.3ms | Allocations: 12855)
+
+
+Started GET "/api/v1/users/index" for 127.0.0.1 at 2022-04-13 11:30:55 -0300
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"name"=>"jjo", "password"=>"[FILTERED]", "is_admin"=>false, "email"=>"chevroleide@mas", "user"=>{"name"=>"jjo", "password"=>"[FILTERED]", "email"=>"chevroleide@mas", "is_admin"=>false}}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 613)
+
+
+Started GET "/" for 127.0.0.1 at 2022-04-13 11:30:55 -0300
+Processing by Rails::WelcomeController#index as */*
+  Parameters: {"welcome"=>{}}
+  Rendering /home/victhor/.rvm/gems/ruby-3.0.2/gems/railties-6.1.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/victhor/.rvm/gems/ruby-3.0.2/gems/railties-6.1.5/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 14)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 368)
+
+
+Started GET "/api/v1/users/index" for 127.0.0.1 at 2022-04-13 11:31:20 -0300
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"name"=>"jjo", "password"=>"[FILTERED]", "is_admin"=>false, "email"=>"chevroleide@mas", "user"=>{"name"=>"jjo", "password"=>"[FILTERED]", "email"=>"chevroleide@mas", "is_admin"=>false}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `index'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `index'
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 2.9ms | Allocations: 7031)
+
+
+Started GET "/api/v1/users/index" for 127.0.0.1 at 2022-04-13 11:31:23 -0300
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"name"=>"jjo", "password"=>"[FILTERED]", "is_admin"=>false, "email"=>"chevroleide@mas", "user"=>{"name"=>"jjo", "password"=>"[FILTERED]", "email"=>"chevroleide@mas", "is_admin"=>false}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `index'
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.4ms | Allocations: 805)
+
+
+Started POST "/api/v1/users/login" for 127.0.0.1 at 2022-04-13 11:34:42 -0300
+Processing by Api::V1::UsersController#login as */*
+  Parameters: {"password"=>"[FILTERED]", "email"=>"chevroleide@mas", "user"=>{"password"=>"[FILTERED]", "email"=>"chevroleide@mas"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chevroleide@mas"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:6:in `login'
+Completed 200 OK in 364ms (Views: 0.6ms | ActiveRecord: 0.6ms | Allocations: 995)
+
+
+Started GET "/api/v1/users/show" for 127.0.0.1 at 2022-04-13 11:36:17 -0300
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"password"=>"[FILTERED]", "email"=>"chevroleide@mas", "user"=>{"password"=>"[FILTERED]", "email"=>"chevroleide@mas"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "chevroleide@mas"], ["LIMIT", 1]]
+Completed 200 OK in 305ms (Views: 0.6ms | ActiveRecord: 1.1ms | Allocations: 3342)
+
+
+Started GET "/api/v1/users/show" for 127.0.0.1 at 2022-04-13 11:36:20 -0300
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"password"=>"[FILTERED]", "email"=>"chevroleide@mas", "user"=>{"password"=>"[FILTERED]", "email"=>"chevroleide@mas"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "chevroleide@mas"], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 1437)
+
+
+Started GET "/api/v1/users/logout" for 127.0.0.1 at 2022-04-13 11:36:26 -0300
+Processing by Api::V1::UsersController#logout as */*
+  Parameters: {"password"=>"[FILTERED]", "email"=>"chevroleide@mas", "user"=>{"password"=>"[FILTERED]", "email"=>"chevroleide@mas"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "chevroleide@mas"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:17:in `logout'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "XhvxqXmkxS6J2sajaoWJ"]]
+  ↳ app/controllers/api/v1/users_controller.rb:17:in `logout'
+  [1m[36mUser Update (7.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "authentication_token" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-04-13 14:36:27.018940"], ["authentication_token", "XhvxqXmkxS6J2sajaoWJ"], ["id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:17:in `logout'
+  [1m[36mTRANSACTION (81.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:17:in `logout'
+Completed 200 OK in 120ms (Views: 0.7ms | ActiveRecord: 89.7ms | Allocations: 6417)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRatings (20220413150747)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "value" integer, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_a7dfeb9f5f"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_user_id" ON "ratings" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220413150747"]]
+  [1m[36mTRANSACTION (94.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
