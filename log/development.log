@@ -6,3 +6,69 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 87ms (Views: 28.7ms | ActiveRecord: 0.0ms | Allocations: 6367)
 
 
+  [1m[35m (9.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (201.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMusics (20220413044538)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "musics" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "photo" blob, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220413044538"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-13 04:45:54.776467"], ["updated_at", "2022-04-13 04:45:54.776467"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (7.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (1.6ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "photo", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Brokedown Palace"], ["description", "Bruce Hornsby"], ["photo", nil], ["created_at", "2022-04-13 04:58:38.819841"], ["updated_at", "2022-04-13 04:58:38.819841"]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (1.7ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "photo", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Touch of Grey"], ["description", "Bob Weir"], ["photo", nil], ["created_at", "2022-04-13 04:58:38.836175"], ["updated_at", "2022-04-13 04:58:38.836175"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (1.8ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "photo", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Box of Rain"], ["description", "Keith Godchaux"], ["photo", nil], ["created_at", "2022-04-13 04:58:38.845933"], ["updated_at", "2022-04-13 04:58:38.845933"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (2.7ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "photo", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Eyes of the World"], ["description", "Phil Lesh"], ["photo", nil], ["created_at", "2022-04-13 04:58:38.859003"], ["updated_at", "2022-04-13 04:58:38.859003"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (2.0ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "photo", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Brokedown Palace"], ["description", "Brent Mydland"], ["photo", nil], ["created_at", "2022-04-13 04:58:38.871651"], ["updated_at", "2022-04-13 04:58:38.871651"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (4.7ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "photo", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Looks Like Rain"], ["description", "Bob Weir"], ["photo", nil], ["created_at", "2022-04-13 04:58:38.899566"], ["updated_at", "2022-04-13 04:58:38.899566"]]
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (2.7ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "photo", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "The Other One"], ["description", "Robert Hunter"], ["photo", nil], ["created_at", "2022-04-13 04:58:38.920598"], ["updated_at", "2022-04-13 04:58:38.920598"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (2.6ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "photo", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Playing in the Band"], ["description", "Brent Mydland"], ["photo", nil], ["created_at", "2022-04-13 04:58:38.939420"], ["updated_at", "2022-04-13 04:58:38.939420"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (1.9ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "photo", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Friend of the Devil"], ["description", "Phil Lesh"], ["photo", nil], ["created_at", "2022-04-13 04:58:38.957504"], ["updated_at", "2022-04-13 04:58:38.957504"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (4.6ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "photo", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Hurts Me Too"], ["description", "Bruce Hornsby"], ["photo", nil], ["created_at", "2022-04-13 04:58:38.982202"], ["updated_at", "2022-04-13 04:58:38.982202"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (5.3ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "photo", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Wharf Rat"], ["description", "Ron McKernan"], ["photo", nil], ["created_at", "2022-04-13 04:58:38.998548"], ["updated_at", "2022-04-13 04:58:38.998548"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (4.7ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "photo", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "I Know You Rider"], ["description", "John Barlow"], ["photo", nil], ["created_at", "2022-04-13 04:58:39.016158"], ["updated_at", "2022-04-13 04:58:39.016158"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (2.7ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "photo", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "China Cat Sunflower"], ["description", "Ron McKernan"], ["photo", nil], ["created_at", "2022-04-13 04:58:39.033112"], ["updated_at", "2022-04-13 04:58:39.033112"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (5.1ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "photo", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Casey Jones"], ["description", "Robert Hunter"], ["photo", nil], ["created_at", "2022-04-13 04:58:39.049329"], ["updated_at", "2022-04-13 04:58:39.049329"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (4.2ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "photo", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Me and My Uncle"], ["description", "Brent Mydland"], ["photo", nil], ["created_at", "2022-04-13 04:58:39.065814"], ["updated_at", "2022-04-13 04:58:39.065814"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
