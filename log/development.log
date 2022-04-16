@@ -72,3 +72,5 @@ Migrating to CreateMusics (20220413044538)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[36mMusic Create (4.2ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "photo", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Me and My Uncle"], ["description", "Brent Mydland"], ["photo", nil], ["created_at", "2022-04-13 04:58:39.065814"], ["updated_at", "2022-04-13 04:58:39.065814"]]
   [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (7.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mMusic Load (0.7ms)[0m  [1m[34mSELECT "musics".* FROM "musics"[0m
