@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+15.times do |i|
+    puts "Cadastrando música #{i+1}"
+    Music.create(title: Faker::Music::GratefulDead.song, description: Faker::Music::GratefulDead.player)
+end
