@@ -22,6 +22,14 @@ Rails.application.routes.draw do
         put 'update/:id', to: 'ratings#update'
         delete 'delete/:id', to: 'ratings#delete'
       end
+
+      scope 'musics' do
+        get 'index', to: 'musics#index', as: :music_index
+        get 'show/:id', to: 'musics#show', as: :music_show
+        post 'create', to: 'musics#create', as: :music_post
+        put 'update/:id', to: 'musics#update', as: :music_put
+        delete 'delete/:id', to: 'musics#delete', as: :music_delete
+      end
     end
   end
 end
