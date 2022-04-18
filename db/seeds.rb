@@ -6,7 +6,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.create(name: "Teste", email: "Teste@teste", password: "Teste123", is_admin: true)
+
 15.times do |i|
   puts "Cadastrando música #{i+1}"
   Music.create(title: Faker::Music::GratefulDead.song, description: Faker::Music::GratefulDead.player)
+  puts "Cadastrando rating #{i+1}"
+  Rating.create(user_id: 1, value: rand(6), music_id: i+1)
 end
+

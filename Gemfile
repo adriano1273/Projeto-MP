@@ -52,3 +52,4 @@ gem 'rubocop'
 
 # Populador do banco
 gem 'faker'
+gem 'active_model_serializers'
