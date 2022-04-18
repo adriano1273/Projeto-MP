@@ -203,3 +203,53 @@ Migrating to CreateMusics (20220418200503)
   [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (25.1ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Jack Straw"], ["description", "Bob Weir"], ["created_at", "2022-04-18 22:03:59.949259"], ["updated_at", "2022-04-18 22:03:59.949259"]]
+  [1m[36mTRANSACTION (176.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.6ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "The Music Never Stopped"], ["description", "Robert Hunter"], ["created_at", "2022-04-18 22:04:00.160633"], ["updated_at", "2022-04-18 22:04:00.160633"]]
+  [1m[36mTRANSACTION (73.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.6ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Althea"], ["description", "Bill Kreutzmann"], ["created_at", "2022-04-18 22:04:00.247993"], ["updated_at", "2022-04-18 22:04:00.247993"]]
+  [1m[36mTRANSACTION (75.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.6ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "China Cat Sunflower"], ["description", "Brent Mydland"], ["created_at", "2022-04-18 22:04:00.337362"], ["updated_at", "2022-04-18 22:04:00.337362"]]
+  [1m[36mTRANSACTION (70.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.6ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Looks Like Rain"], ["description", "Donna Jean Godchaux"], ["created_at", "2022-04-18 22:04:00.421380"], ["updated_at", "2022-04-18 22:04:00.421380"]]
+  [1m[36mTRANSACTION (73.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.5ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Ripple"], ["description", "Brent Mydland"], ["created_at", "2022-04-18 22:04:00.509068"], ["updated_at", "2022-04-18 22:04:00.509068"]]
+  [1m[36mTRANSACTION (102.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.5ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Playing in the Band"], ["description", "Robert Hunter"], ["created_at", "2022-04-18 22:04:00.625036"], ["updated_at", "2022-04-18 22:04:00.625036"]]
+  [1m[36mTRANSACTION (93.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.6ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Brokedown Palace"], ["description", "Robert Hunter"], ["created_at", "2022-04-18 22:04:00.731214"], ["updated_at", "2022-04-18 22:04:00.731214"]]
+  [1m[36mTRANSACTION (96.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.5ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Friend of the Devil"], ["description", "Keith Godchaux"], ["created_at", "2022-04-18 22:04:00.842138"], ["updated_at", "2022-04-18 22:04:00.842138"]]
+  [1m[36mTRANSACTION (66.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.5ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "China Cat Sunflower"], ["description", "John Barlow"], ["created_at", "2022-04-18 22:04:00.923465"], ["updated_at", "2022-04-18 22:04:00.923465"]]
+  [1m[36mTRANSACTION (95.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.5ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Truckin"], ["description", "Phil Lesh"], ["created_at", "2022-04-18 22:04:01.030903"], ["updated_at", "2022-04-18 22:04:01.030903"]]
+  [1m[36mTRANSACTION (54.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.5ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Wharf Rat"], ["description", "Brent Mydland"], ["created_at", "2022-04-18 22:04:01.100614"], ["updated_at", "2022-04-18 22:04:01.100614"]]
+  [1m[36mTRANSACTION (71.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.7ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Truckin"], ["description", "Brent Mydland"], ["created_at", "2022-04-18 22:04:01.184039"], ["updated_at", "2022-04-18 22:04:01.184039"]]
+  [1m[36mTRANSACTION (91.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.5ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Touch of Grey"], ["description", "Donna Jean Godchaux"], ["created_at", "2022-04-18 22:04:01.292727"], ["updated_at", "2022-04-18 22:04:01.292727"]]
+  [1m[36mTRANSACTION (76.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.6ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Hurts Me Too"], ["description", "John Barlow"], ["created_at", "2022-04-18 22:04:01.383077"], ["updated_at", "2022-04-18 22:04:01.383077"]]
+  [1m[36mTRANSACTION (73.5ms)[0m  [1m[36mcommit transaction[0m

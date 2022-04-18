@@ -49,3 +49,6 @@ gem 'simple_token_authentication'
 
 # Analisador estático
 gem 'rubocop'
+
+# Populador do banco
+gem 'faker'
