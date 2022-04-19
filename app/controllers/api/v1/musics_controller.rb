@@ -11,6 +11,11 @@ module Api
       def show
         music = Music.find(params[:id])
         render json: music, status: :ok
+        if music.rating.blank?
+          average_rating = 0
+        else
+          average_rating = music.rating(:rating).round(1)
+        end
       rescue StandardError
         head(:not_found)
       end
