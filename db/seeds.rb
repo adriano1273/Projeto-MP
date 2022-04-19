@@ -11,6 +11,7 @@ User.create(name: "Teste", email: "Teste@teste", password: "Teste123", is_admin:
 15.times do |i|
   puts "Cadastrando música #{i+1}"
   Music.create(title: Faker::Music::GratefulDead.song, description: Faker::Music::GratefulDead.player)
+  #m.photo.attach(io: File.open('./public/imagem.jpg'), filename: "imagem.jpg")
   puts "Cadastrando rating #{i+1}"
   Rating.create(user_id: 1, value: rand(6), music_id: i+1)
 end
