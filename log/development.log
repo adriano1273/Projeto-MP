@@ -8045,3 +8045,33 @@ FOREIGN KEY ("user_id")
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
   [1m[36mRating Create (0.5ms)[0m  [1m[32mINSERT INTO "ratings" ("value", "user_id", "created_at", "updated_at", "music_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", 4], ["user_id", 1], ["created_at", "2022-04-21 21:06:14.113684"], ["updated_at", "2022-04-21 21:06:14.113684"], ["music_id", 15]]
   [1m[36mTRANSACTION (92.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRefToMusic (20220421213631)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "musics" ADD "genre_id" integer[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_musics_on_genre_id" ON "musics" ("genre_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "amusics" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "photo" blob DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "genre_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_amusics_on_genre_id" ON "amusics" ("genre_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "amusics" ("id","title","description","photo","created_at","updated_at","genre_id")
+                     SELECT "id","title","description","photo","created_at","updated_at","genre_id" FROM "musics"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "musics"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "musics" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "photo" blob DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "genre_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_2b1fba23a2"
+FOREIGN KEY ("genre_id")
+  REFERENCES "genres" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_musics_on_genre_id" ON "musics" ("genre_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "musics" ("id","title","description","photo","created_at","updated_at","genre_id")
+                     SELECT "id","title","description","photo","created_at","updated_at","genre_id" FROM "amusics"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "amusics"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220421213631"]]
+  [1m[36mTRANSACTION (91.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

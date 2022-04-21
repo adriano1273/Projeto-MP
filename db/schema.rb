@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_21_205055) do
+ActiveRecord::Schema.define(version: 2022_04_21_213631) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 2022_04_21_205055) do
     t.binary "photo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "genre_id"
+    t.index ["genre_id"], name: "index_musics_on_genre_id"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -94,6 +96,7 @@ ActiveRecord::Schema.define(version: 2022_04_21_205055) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "favorites", "musics"
   add_foreign_key "favorites", "users"
+  add_foreign_key "musics", "genres"
   add_foreign_key "ratings", "musics"
   add_foreign_key "ratings", "users"
 end
