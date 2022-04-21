@@ -57,13 +57,6 @@ module Api
         head(:bad_request)
       end
 
-      def my_favorites
-        user = User.find(params[:id])
-        render json: user.products, status: :ok
-      rescue StandardError
-        head(:not_found)
-      end
-
       private
 
       def user_params

@@ -11,13 +11,8 @@ module Api
       def show
         music = Music.find(params[:id])
         render json: music, status: :ok
-        if music.rating.blank?
-          average_rating = 0
-        else
-          average_rating = music.rating(:rating).round(1)
-        end
-      rescue StandardError
-        head(:not_found)
+      rescue StandardError => e
+        render json: { message: e.message }, status: 404
       end
 
       def create
@@ -32,8 +27,8 @@ module Api
         music = Music.find(params[:id])
         music.update!(music_params)
         render json: music, status: :ok
-      rescue StandardError
-        head(:unprocessable_entity)
+      rescue StandardError => e
+        render json: { message: e.message }, status: :bad_request
       end
 
       def delete

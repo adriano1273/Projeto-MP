@@ -4,6 +4,5 @@ FactoryBot.define do
   factory :music do
     title { 'MyString' }
     description { 'MyText' }
-    photo { '' }
   end
 end

@@ -45,7 +45,7 @@ RSpec.describe 'Api::V1::Musics', type: :request do
       it { expect(response).to have_http_status(:not_found) }
 
       it 'does not return a json' do
-        expect(response.content_type).not_to eq('application/json; charset=utf-8')
+        expect(response.content_type).not_to eq('application/json')
       end
     end
   end

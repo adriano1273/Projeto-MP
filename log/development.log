@@ -5495,3 +5495,356 @@ Processing by Api::V1::MusicsController#index as */*
 Completed 200 OK in 1324ms (Views: 1054.1ms | ActiveRecord: 72.3ms | Allocations: 51692)
 
 
+Started GET "/api/v1/musics/index" for 127.0.0.1 at 2022-04-21 15:36:37 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::MusicsController#index as */*
+  [1m[36mMusic Load (0.9ms)[0m  [1m[34mSELECT "musics".* FROM "musics"[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 10]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 11]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 12]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 13]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 14]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 15]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 6], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 14], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (171.14ms)
+Completed 200 OK in 205ms (Views: 185.7ms | ActiveRecord: 10.1ms | Allocations: 51287)
+
+
+Started GET "/api/v1/musics/index" for 127.0.0.1 at 2022-04-21 15:37:41 -0300
+Processing by Api::V1::MusicsController#index as */*
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+  [1m[36mMusic Load (0.5ms)[0m  [1m[34mSELECT "musics".* FROM "musics"[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 10]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 11]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 12]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 13]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 14]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 15]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 6], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 14], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (244.38ms)
+Completed 200 OK in 279ms (Views: 274.2ms | ActiveRecord: 12.8ms | Allocations: 43640)
+
+
+Started GET "/api/v1/musics/show/1" for 127.0.0.1 at 2022-04-21 15:37:47 -0300
+Processing by Api::V1::MusicsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMusic Load (0.4ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:13:in `show'
+[active_model_serializers] Rendered MusicSerializer with ActiveModelSerializers::Adapter::Attributes (8.52ms)
+Completed 404 Not Found in 15ms (Views: 9.7ms | ActiveRecord: 0.7ms | Allocations: 2953)
+
+
+Started GET "/api/v1/musics/show/2" for 127.0.0.1 at 2022-04-21 15:37:53 -0300
+Processing by Api::V1::MusicsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mMusic Load (0.3ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:13:in `show'
+[active_model_serializers] Rendered MusicSerializer with ActiveModelSerializers::Adapter::Attributes (13.7ms)
+Completed 404 Not Found in 20ms (Views: 15.8ms | ActiveRecord: 0.8ms | Allocations: 2602)
+
+
+Started GET "/api/v1/musics/show/2" for 127.0.0.1 at 2022-04-21 15:38:09 -0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::MusicsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mMusic Load (0.3ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:13:in `show'
+[active_model_serializers] Rendered MusicSerializer with ActiveModelSerializers::Adapter::Attributes (39.79ms)
+Completed 404 Not Found in 85ms (Views: 48.4ms | ActiveRecord: 3.2ms | Allocations: 22875)
+
+
+Started GET "/api/v1/musics/show/2" for 127.0.0.1 at 2022-04-21 15:38:11 -0300
+Processing by Api::V1::MusicsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mMusic Load (0.3ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:13:in `show'
+[active_model_serializers] Rendered MusicSerializer with ActiveModelSerializers::Adapter::Attributes (9.12ms)
+Completed 404 Not Found in 14ms (Views: 10.4ms | ActiveRecord: 0.6ms | Allocations: 2884)
+
+
+Started GET "/api/v1/musics/show/1" for 127.0.0.1 at 2022-04-21 15:38:13 -0300
+Processing by Api::V1::MusicsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMusic Load (0.2ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:13:in `show'
+[active_model_serializers] Rendered MusicSerializer with ActiveModelSerializers::Adapter::Attributes (10.94ms)
+Completed 404 Not Found in 15ms (Views: 12.3ms | ActiveRecord: 0.6ms | Allocations: 2602)
+
+
+Started GET "/api/v1/musics/show/1" for 127.0.0.1 at 2022-04-21 15:39:45 -0300
+Processing by Api::V1::MusicsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+  [1m[36mMusic Load (0.3ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:13:in `show'
+[active_model_serializers] Rendered MusicSerializer with ActiveModelSerializers::Adapter::Attributes (52.64ms)
+Completed 404 Not Found in 83ms (Views: 30.2ms | ActiveRecord: 28.4ms | Allocations: 15275)
+
+
+Started GET "/api/v1/musics/show/1" for 127.0.0.1 at 2022-04-21 15:39:47 -0300
+Processing by Api::V1::MusicsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMusic Load (0.2ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:13:in `show'
+[active_model_serializers] Rendered MusicSerializer with ActiveModelSerializers::Adapter::Attributes (15.27ms)
+Completed 404 Not Found in 21ms (Views: 16.4ms | ActiveRecord: 0.7ms | Allocations: 2879)
+
+
+Started GET "/api/v1/musics/show/1" for 127.0.0.1 at 2022-04-21 15:40:20 -0300
+Processing by Api::V1::MusicsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+  [1m[36mMusic Load (0.4ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:13:in `show'
+[active_model_serializers] Rendered MusicSerializer with ActiveModelSerializers::Adapter::Attributes (34.54ms)
+Completed 500 Internal Server Error in 72ms (Views: 36.4ms | ActiveRecord: 4.8ms | Allocations: 17381)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/api/v1/musics_controller.rb:20:in `rescue in show'
+app/controllers/api/v1/musics_controller.rb:11:in `show'
+Started GET "/api/v1/musics/show/1" for 127.0.0.1 at 2022-04-21 15:41:52 -0300
+Processing by Api::V1::MusicsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMusic Load (206.6ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:13:in `show'
+[active_model_serializers] Rendered MusicSerializer with ActiveModelSerializers::Adapter::Attributes (10.66ms)
+Completed 500 Internal Server Error in 234ms (Views: 13.9ms | ActiveRecord: 207.0ms | Allocations: 4961)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/api/v1/musics_controller.rb:20:in `rescue in show'
+app/controllers/api/v1/musics_controller.rb:11:in `show'
+Started GET "/api/v1/musics/update/1" for 127.0.0.1 at 2022-04-21 15:41:59 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/musics/update/1"):
+  
+Started PATCH "/api/v1/musics/update/1" for 127.0.0.1 at 2022-04-21 15:42:05 -0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/api/v1/musics/update/1"):
+  
+Started PATCH "/api/v1/musics/update/1" for 127.0.0.1 at 2022-04-21 15:42:06 -0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/api/v1/musics/update/1"):
+  
+Started PUT "/api/v1/musics/update/1" for 127.0.0.1 at 2022-04-21 15:42:13 -0300
+Processing by Api::V1::MusicsController#update as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMusic Load (0.2ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:32:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.3ms)
+Completed 400 Bad Request in 3415ms (Views: 3412.2ms | ActiveRecord: 0.2ms | Allocations: 2193)
+
+
+Started GET "/api/v1/musics/show/1" for 127.0.0.1 at 2022-04-21 15:42:28 -0300
+Processing by Api::V1::MusicsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMusic Load (0.3ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:13:in `show'
+[active_model_serializers] Rendered MusicSerializer with ActiveModelSerializers::Adapter::Attributes (8.93ms)
+Completed 500 Internal Server Error in 23ms (Views: 9.9ms | ActiveRecord: 0.6ms | Allocations: 5031)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/api/v1/musics_controller.rb:20:in `rescue in show'
+app/controllers/api/v1/musics_controller.rb:11:in `show'
+Started GET "/api/v1/musics/show/1" for 127.0.0.1 at 2022-04-21 15:42:42 -0300
+Processing by Api::V1::MusicsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+  [1m[36mMusic Load (0.4ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:13:in `show'
+[active_model_serializers] Rendered MusicSerializer with ActiveModelSerializers::Adapter::Attributes (46.88ms)
+Completed 200 OK in 139ms (Views: 94.4ms | ActiveRecord: 6.4ms | Allocations: 15039)
+
+
+Started GET "/api/v1/musics/show/1" for 127.0.0.1 at 2022-04-21 15:43:04 -0300
+Processing by Api::V1::MusicsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+  [1m[36mMusic Load (0.2ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 404 Not Found in 34ms (Views: 2.2ms | ActiveRecord: 2.0ms | Allocations: 8765)
+
+
+Started GET "/api/v1/musics/show/1" for 127.0.0.1 at 2022-04-21 16:02:25 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::MusicsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMusic Load (0.4ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:13:in `show'
+[active_model_serializers] Rendered MusicSerializer with ActiveModelSerializers::Adapter::Attributes (50.73ms)
+Completed 200 OK in 113ms (Views: 66.7ms | ActiveRecord: 5.2ms | Allocations: 22787)
+
+
