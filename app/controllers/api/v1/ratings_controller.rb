@@ -44,7 +44,7 @@ module Api
       def rating_params
         params.require(:rating).permit(
           :user_id,
-          # :music_id,
+          :music_id,
           :value
         )
       end

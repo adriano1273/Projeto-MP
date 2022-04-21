@@ -11,4 +11,5 @@ class User < ApplicationRecord
   validates :is_admin, inclusion: [false, true], exclusion: [nil]
 
   has_many :ratings
+  has_many :favorites
 end
