@@ -57,6 +57,50 @@ module Api
         head(:bad_request)
       end
 
+      def recomend_by_genre
+        user = User.find(params[:id])
+        favorites = user.favorites.where(value: 1)
+        music_reference = favorites.sample.music_id
+        ids = favorites.pluck(:music_id)
+        favorite_musics = Music.where(id: ids)
+        music = Music.find_by(id: music_reference)
+        suggested_genre = Genre.find_by(id: music.genre_id)
+        suggested_musics = Music.where(genre_id: music.genre_id)
+
+        suggestion = suggested_musics - favorite_musics
+
+        render json: suggestion, status: 200
+
+      rescue StandardError
+        head(:bad_request)
+        
+      end
+
+      def recomend_by_interest
+        c_user = User.find(params[:id])
+        favorites = c_user.favorites.where(value: 1)
+        ids = favorites.pluck(:music_id)
+        c_user_interests = Music.where(id: ids)
+        music_reference = favorites.sample.music_id
+        users = Favorite.where(music_id: music_reference, value: 1).pluck(:user_id) 
+        aux_arr = [c_user.id]
+        users = users - aux_arr
+        user_reference_id = users.sample  
+
+        
+        user_reference = User.find_by(id: user_reference_id)
+        uref_favorites = user_reference.favorites.where(value: 1)
+        ids = uref_favorites.pluck(:music_id)
+        uref_interests = Music.where(id: ids)
+
+        suggestion = uref_interests - c_user_interests 
+        render json: suggestion, status: 200
+        
+      rescue StandardError
+        head(:bad_request)
+        
+      end
+
       private
 
       def user_params

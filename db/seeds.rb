@@ -8,11 +8,44 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create(name: "Teste", email: "Teste@teste", password: "Teste123", is_admin: true)
 
-15.times do |i|
-  puts "Cadastrando música #{i+1}"
-  Music.create(title: Faker::Music::GratefulDead.song, description: Faker::Music::GratefulDead.player)
-  #m.photo.attach(io: File.open('./public/imagem.jpg'), filename: "imagem.jpg")
-  puts "Cadastrando rating #{i+1}"
-  Rating.create(user_id: 1, value: rand(6), music_id: i+1)
+puts "Cadastrando Generos de musica"
+Genre.create(id: 1,name: "Rock")
+puts "Cadastrando Generos de musica"
+Genre.create(id: 2,name: "MPB")
+puts "Cadastrando Generos de musica"
+Genre.create(id: 3,name: "Pop")
+
+
+5.times do |i|
+  puts "Cadastrando músicas de Rock #{i+1}"
+  Music.create(title: "Rock Song #{i+1}", description: "Rock Song #{i+1} description", genre_id: 1)
 end
+
+5.times do |i|
+  puts "Cadastrando músicas de MPB #{i+1}"
+  Music.create(title: "MPB Song #{i+1}", description: "MPB Song #{i+1} description", genre_id: 2)
+end
+
+5.times do |i|
+  puts "Cadastrando músicas de Pop #{i+1}"
+  Music.create(title: "Pop Song #{i+1}", description: "Pop Song #{i+1} description", genre_id: 3)
+end
+
+
+3.times do |i|
+  puts "Cadastrando Usuario #{i+1}"
+  User.create(name: "User#{i+1}", email: "user#{i+1}@mail", password: "Teste123", is_admin: false)
+end
+
+Favorite.create(user_id: 1, music_id: 1, value: 1);
+Favorite.create(user_id: 1, music_id: 9, value: 1);
+Favorite.create(user_id: 1, music_id: 12, value: -1);
+
+Favorite.create(user_id: 2, music_id: 6, value: 1);
+Favorite.create(user_id: 2, music_id: 14, value: 1);
+Favorite.create(user_id: 2, music_id: 1, value: -1);
+
+Favorite.create(user_id: 3, music_id: 11, value: 1);
+Favorite.create(user_id: 3, music_id: 3, value: 1);
+Favorite.create(user_id: 3, music_id: 6, value: -1);
 
