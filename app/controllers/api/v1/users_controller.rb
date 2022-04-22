@@ -60,14 +60,21 @@ module Api
       def recomend_by_genre
         user = User.find(params[:id])
         favorites = user.favorites.where(value: 1)
+
+        hated = user.favorites.where(value: -1)
+        hated_ids = hated.pluck(:music_id)
+        hated_musics = Music.where(id: hated_ids)
+
         music_reference = favorites.sample.music_id
         ids = favorites.pluck(:music_id)
         favorite_musics = Music.where(id: ids)
         music = Music.find_by(id: music_reference)
+
         suggested_genre = Genre.find_by(id: music.genre_id)
         suggested_musics = Music.where(genre_id: music.genre_id)
 
         suggestion = suggested_musics - favorite_musics
+        suggestion = suggestion - hated_musics
 
         render json: suggestion, status: 200
 
@@ -77,8 +84,14 @@ module Api
       end
 
       def recomend_by_interest
+
         c_user = User.find(params[:id])
         favorites = c_user.favorites.where(value: 1)
+
+        hated = user.favorites.where(value: -1)
+        hated_ids = hated.pluck(:music_id)
+        hated_musics = Music.where(id: hated_ids)
+
         ids = favorites.pluck(:music_id)
         c_user_interests = Music.where(id: ids)
         music_reference = favorites.sample.music_id
@@ -94,6 +107,9 @@ module Api
         uref_interests = Music.where(id: ids)
 
         suggestion = uref_interests - c_user_interests 
+        suggestion = suggestion - hated_musics
+
+
         render json: suggestion, status: 200
         
       rescue StandardError
