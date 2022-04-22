@@ -41,6 +41,15 @@ Rails.application.routes.draw do
         put 'update/:id', to: 'favorites#update'
         delete 'delete/:id', to: 'favorites#delete'
       end      
+
+      scope 'genres' do
+        get 'index', to: 'genres#index'
+        get 'show/:id', to: 'genres#show'
+        post 'create', to: 'genres#create'
+        put 'update/:id', to: 'genres#update'
+        delete 'delete/:id', to: 'genres#delete'
+      end  
+      
     end
   end
 end
