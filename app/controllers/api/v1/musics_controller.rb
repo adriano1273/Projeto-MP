@@ -10,6 +10,15 @@ module Api
 
       def show
         music = Music.find(params[:id])
+
+        if music.ratings.blank?
+          average_rating = 0
+        else
+          average_rating = music.ratings.average(:value).round(1)
+        end
+
+        music.average = average_rating
+
         render json: music, status: :ok
       rescue StandardError => e
         render json: { message: e.message }, status: 404

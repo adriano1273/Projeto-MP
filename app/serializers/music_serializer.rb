@@ -1,5 +1,5 @@
 class MusicSerializer < ActiveModel::Serializer
-  attributes :title, :description, :photo_url, :id
+  attributes :title, :description, :photo_url, :id, :average
   has_many :ratings
 
   def photo_url
