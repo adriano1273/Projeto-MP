@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   devise_for :users, skip: :all
-  resources :musics do
+  resources :favorites do
     resources :ratings
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -33,6 +33,14 @@ Rails.application.routes.draw do
         put 'update/:id', to: 'musics#update', as: :music_put
         delete 'delete/:id', to: 'musics#delete', as: :music_delete
       end
+
+      scope 'favorites' do
+        get 'index', to: 'favorites#index'
+        get 'show/:id', to: 'favorites#show'
+        post 'create', to: 'favorites#create'
+        put 'update/:id', to: 'favorites#update'
+        delete 'delete/:id', to: 'favorites#delete'
+      end      
     end
   end
 end
