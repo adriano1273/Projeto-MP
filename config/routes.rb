@@ -13,6 +13,8 @@ Rails.application.routes.draw do
         get '/logout', to: 'users#logout'
         get '/index', to: 'users#index'
         get '/show', to: 'users#show'
+        get '/recomend_by_genre/:id', to: 'users#recomend_by_genre'
+        get '/recomend_by_interest/:id', to: 'users#recomend_by_interest'
         post '/create', to: 'users#create'
         patch '/update/:id', to: 'users#update'
         delete '/delete/:id', to: 'users#delete'
