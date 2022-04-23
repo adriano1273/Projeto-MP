@@ -13,6 +13,8 @@ Rails.application.routes.draw do
         get '/logout', to: 'users#logout'
         get '/index', to: 'users#index'
         get '/show', to: 'users#show'
+        get '/recomend_by_genre/:id', to: 'users#recomend_by_genre'
+        get '/recomend_by_interest/:id', to: 'users#recomend_by_interest'
         post '/create', to: 'users#create'
         patch '/update/:id', to: 'users#update'
         delete '/delete/:id', to: 'users#delete'
@@ -29,6 +31,7 @@ Rails.application.routes.draw do
       scope 'musics' do
         get 'index', to: 'musics#index', as: :music_index
         get 'show/:id', to: 'musics#show', as: :music_show
+        get 'favorites_by/:id', to: 'musics#favorited_by', 
         post 'create', to: 'musics#create', as: :music_post
         put 'update/:id', to: 'musics#update', as: :music_put
         delete 'delete/:id', to: 'musics#delete', as: :music_delete
@@ -41,6 +44,15 @@ Rails.application.routes.draw do
         put 'update/:id', to: 'favorites#update'
         delete 'delete/:id', to: 'favorites#delete'
       end      
+
+      scope 'genres' do
+        get 'index', to: 'genres#index'
+        get 'show/:id', to: 'genres#show'
+        post 'create', to: 'genres#create'
+        put 'update/:id', to: 'genres#update'
+        delete 'delete/:id', to: 'genres#delete'
+      end  
+      
     end
   end
 end

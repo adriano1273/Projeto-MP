@@ -48,6 +48,17 @@ module Api
         head(:not_found)
       end
 
+      def favorited_by
+        music = Music.find(params[:id])
+        favorites = Favorite.where(id: music.id, value: 1)
+        user_ids = favorites.pluck(user_id)
+        users = User.where(id: users_ids)
+        render json: users, status: :ok
+        
+      rescue StandardError
+        head(:not_found)
+      end
+
       private
 
       def music_params
