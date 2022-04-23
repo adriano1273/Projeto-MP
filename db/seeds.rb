@@ -38,7 +38,7 @@ end
 end
 
 # cenario 1
-=begin
+
 Favorite.create(user_id: 1, music_id: 1, value: 1);
 Favorite.create(user_id: 1, music_id: 9, value: 1);
 Favorite.create(user_id: 1, music_id: 12, value: -1);
@@ -50,7 +50,7 @@ Favorite.create(user_id: 2, music_id: 1, value: -1);
 Favorite.create(user_id: 3, music_id: 11, value: 1);
 Favorite.create(user_id: 3, music_id: 3, value: 1);
 Favorite.create(user_id: 3, music_id: 6, value: -1);
-=end
+
 
 #cenário 2
 =begin

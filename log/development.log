@@ -10333,3 +10333,1401 @@ Completed 200 OK in 18ms (Views: 7.1ms | ActiveRecord: 0.8ms | Allocations: 2935
 
 
 >>>>>>> development
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAverageFieldToMusic (20220422115209)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "musics" ADD "average" float[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220422115209"]]
+  [1m[36mTRANSACTION (131.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments"[0m
+  [1m[35m (104.0ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL)[0m
+  [1m[35m (175.0ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (110.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs"[0m
+  [1m[35m (115.1ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar NOT NULL, "created_at" datetime NOT NULL)[0m
+  [1m[35m (221.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records"[0m
+  [1m[35m (174.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" integer NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (108.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "favorites"[0m
+  [1m[35m (104.5ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "value" integer, "music_id" integer NOT NULL)[0m
+  [1m[35m (200.2ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_music_id" ON "favorites" ("music_id")[0m
+  [1m[35m (111.2ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_user_id" ON "favorites" ("user_id")[0m
+  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "genres"[0m
+  [1m[35m (118.5ms)[0m  [1m[35mCREATE TABLE "genres" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "musics"[0m
+  [1m[35m (116.9ms)[0m  [1m[35mCREATE TABLE "musics" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "photo" blob, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "genre_id" integer, "average" float)[0m
+  [1m[35m (171.1ms)[0m  [1m[35mCREATE INDEX "index_musics_on_genre_id" ON "musics" ("genre_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "ratings"[0m
+  [1m[35m (137.7ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "value" integer, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "music_id" integer)[0m
+  [1m[35m (128.0ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_music_id" ON "ratings" ("music_id")[0m
+  [1m[35m (109.0ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_user_id" ON "ratings" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (131.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "name" varchar, "is_admin" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "authentication_token" varchar(30))[0m
+  [1m[35m (238.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_authentication_token" ON "users" ("authentication_token")[0m
+  [1m[35m (1757.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (190.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_attachments" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_attachments_uniqueness" ON "aactive_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_aactive_storage_attachments_on_blob_id" ON "aactive_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aactive_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "active_storage_attachments"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE "active_storage_attachments"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "aactive_storage_attachments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "aactive_storage_attachments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (134.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_variant_records" ("id" integer NOT NULL PRIMARY KEY, "blob_id" integer NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_variant_records_uniqueness" ON "aactive_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "aactive_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "active_storage_variant_records"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE "active_storage_variant_records"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer NOT NULL PRIMARY KEY, "blob_id" integer NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "aactive_storage_variant_records"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "aactive_storage_variant_records"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (108.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afavorites" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "value" integer DEFAULT NULL, "music_id" integer NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_afavorites_on_user_id" ON "afavorites" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_afavorites_on_music_id" ON "afavorites" ("music_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "afavorites" ("id","user_id","created_at","updated_at","value","music_id")
+                     SELECT "id","user_id","created_at","updated_at","value","music_id" FROM "favorites"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE "favorites"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "value" integer DEFAULT NULL, "music_id" integer NOT NULL, CONSTRAINT "fk_rails_7cbdb14182"
+FOREIGN KEY ("music_id")
+  REFERENCES "musics" ("id")
+)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_music_id" ON "favorites" ("music_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_user_id" ON "favorites" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "favorites" ("id","user_id","created_at","updated_at","value","music_id")
+                     SELECT "id","user_id","created_at","updated_at","value","music_id" FROM "afavorites"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "afavorites"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (122.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afavorites" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "value" integer DEFAULT NULL, "music_id" integer NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "tindex_afavorites_on_user_id" ON "afavorites" ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "tindex_afavorites_on_music_id" ON "afavorites" ("music_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "afavorites" ("id","user_id","created_at","updated_at","value","music_id")
+                     SELECT "id","user_id","created_at","updated_at","value","music_id" FROM "favorites"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE "favorites"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "value" integer DEFAULT NULL, "music_id" integer NOT NULL, CONSTRAINT "fk_rails_7cbdb14182"
+FOREIGN KEY ("music_id")
+  REFERENCES "musics" ("id")
+, CONSTRAINT "fk_rails_d15744e438"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_music_id" ON "favorites" ("music_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_user_id" ON "favorites" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "favorites" ("id","user_id","created_at","updated_at","value","music_id")
+                     SELECT "id","user_id","created_at","updated_at","value","music_id" FROM "afavorites"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "afavorites"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (142.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TEMPORARY TABLE "amusics" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "photo" blob DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "genre_id" integer DEFAULT NULL, "average" float DEFAULT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "tindex_amusics_on_genre_id" ON "amusics" ("genre_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "amusics" ("id","title","description","photo","created_at","updated_at","genre_id","average")
+                     SELECT "id","title","description","photo","created_at","updated_at","genre_id","average" FROM "musics"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE "musics"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "musics" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "photo" blob DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "genre_id" integer DEFAULT NULL, "average" float DEFAULT NULL, CONSTRAINT "fk_rails_2b1fba23a2"
+FOREIGN KEY ("genre_id")
+  REFERENCES "genres" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_musics_on_genre_id" ON "musics" ("genre_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "musics" ("id","title","description","photo","created_at","updated_at","genre_id","average")
+                     SELECT "id","title","description","photo","created_at","updated_at","genre_id","average" FROM "amusics"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "amusics"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (407.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aratings" ("id" integer NOT NULL PRIMARY KEY, "value" integer DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "music_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_user_id" ON "aratings" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_music_id" ON "aratings" ("music_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aratings" ("id","value","user_id","created_at","updated_at","music_id")
+                     SELECT "id","value","user_id","created_at","updated_at","music_id" FROM "ratings"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE "ratings"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer NOT NULL PRIMARY KEY, "value" integer DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "music_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_0fe41d02ef"
+FOREIGN KEY ("music_id")
+  REFERENCES "musics" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_music_id" ON "ratings" ("music_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_user_id" ON "ratings" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "ratings" ("id","value","user_id","created_at","updated_at","music_id")
+                     SELECT "id","value","user_id","created_at","updated_at","music_id" FROM "aratings"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "aratings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (109.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aratings" ("id" integer NOT NULL PRIMARY KEY, "value" integer DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "music_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_user_id" ON "aratings" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_music_id" ON "aratings" ("music_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "aratings" ("id","value","user_id","created_at","updated_at","music_id")
+                     SELECT "id","value","user_id","created_at","updated_at","music_id" FROM "ratings"[0m
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE "ratings"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer NOT NULL PRIMARY KEY, "value" integer DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "music_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_0fe41d02ef"
+FOREIGN KEY ("music_id")
+  REFERENCES "musics" ("id")
+, CONSTRAINT "fk_rails_a7dfeb9f5f"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_music_id" ON "ratings" ("music_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_user_id" ON "ratings" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "ratings" ("id","value","user_id","created_at","updated_at","music_id")
+                     SELECT "id","value","user_id","created_at","updated_at","music_id" FROM "aratings"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "aratings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (127.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (127.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (77.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220422115209)[0m
+  [1m[35m (100.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220413140721),
+(20220413141910),
+(20220413150747),
+(20220418200503),
+(20220418230427),
+(20220418235916),
+(20220421192724),
+(20220421194152),
+(20220421194427),
+(20220421200328),
+(20220421205055),
+(20220421213631);
+
+[0m
+  [1m[35m (113.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-23 17:44:28.625138"], ["updated_at", "2022-04-23 17:44:28.625138"]]
+  [1m[36mTRANSACTION (149.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "980df9e0a4bd2caf2ac25c48de0180739e9b2ed2"], ["created_at", "2022-04-23 17:44:28.804603"], ["updated_at", "2022-04-23 17:44:28.804603"]]
+  [1m[36mTRANSACTION (82.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments"[0m
+  [1m[35m (89.7ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL)[0m
+  [1m[35m (221.0ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (109.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs"[0m
+  [1m[35m (113.6ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar NOT NULL, "created_at" datetime NOT NULL)[0m
+  [1m[35m (133.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records"[0m
+  [1m[35m (110.3ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" integer NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (97.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "favorites"[0m
+  [1m[35m (111.2ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "value" integer, "music_id" integer NOT NULL)[0m
+  [1m[35m (133.5ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_music_id" ON "favorites" ("music_id")[0m
+  [1m[35m (129.1ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_user_id" ON "favorites" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "genres"[0m
+  [1m[35m (125.6ms)[0m  [1m[35mCREATE TABLE "genres" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "musics"[0m
+  [1m[35m (116.6ms)[0m  [1m[35mCREATE TABLE "musics" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "photo" blob, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "genre_id" integer, "average" float)[0m
+  [1m[35m (138.8ms)[0m  [1m[35mCREATE INDEX "index_musics_on_genre_id" ON "musics" ("genre_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "ratings"[0m
+  [1m[35m (136.4ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "value" integer, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "music_id" integer)[0m
+  [1m[35m (136.9ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_music_id" ON "ratings" ("music_id")[0m
+  [1m[35m (188.6ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_user_id" ON "ratings" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (100.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "name" varchar, "is_admin" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "authentication_token" varchar(30))[0m
+  [1m[35m (117.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_authentication_token" ON "users" ("authentication_token")[0m
+  [1m[35m (108.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (148.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_attachments" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_attachments_uniqueness" ON "aactive_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_aactive_storage_attachments_on_blob_id" ON "aactive_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "aactive_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "active_storage_attachments"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE "active_storage_attachments"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "aactive_storage_attachments"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "aactive_storage_attachments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (96.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_variant_records" ("id" integer NOT NULL PRIMARY KEY, "blob_id" integer NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_variant_records_uniqueness" ON "aactive_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aactive_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "active_storage_variant_records"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE "active_storage_variant_records"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer NOT NULL PRIMARY KEY, "blob_id" integer NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "aactive_storage_variant_records"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "aactive_storage_variant_records"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (92.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afavorites" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "value" integer DEFAULT NULL, "music_id" integer NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "tindex_afavorites_on_user_id" ON "afavorites" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_afavorites_on_music_id" ON "afavorites" ("music_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "afavorites" ("id","user_id","created_at","updated_at","value","music_id")
+                     SELECT "id","user_id","created_at","updated_at","value","music_id" FROM "favorites"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE "favorites"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "value" integer DEFAULT NULL, "music_id" integer NOT NULL, CONSTRAINT "fk_rails_7cbdb14182"
+FOREIGN KEY ("music_id")
+  REFERENCES "musics" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_music_id" ON "favorites" ("music_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_user_id" ON "favorites" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "favorites" ("id","user_id","created_at","updated_at","value","music_id")
+                     SELECT "id","user_id","created_at","updated_at","value","music_id" FROM "afavorites"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "afavorites"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (129.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afavorites" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "value" integer DEFAULT NULL, "music_id" integer NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_afavorites_on_user_id" ON "afavorites" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_afavorites_on_music_id" ON "afavorites" ("music_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "afavorites" ("id","user_id","created_at","updated_at","value","music_id")
+                     SELECT "id","user_id","created_at","updated_at","value","music_id" FROM "favorites"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "favorites"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "value" integer DEFAULT NULL, "music_id" integer NOT NULL, CONSTRAINT "fk_rails_7cbdb14182"
+FOREIGN KEY ("music_id")
+  REFERENCES "musics" ("id")
+, CONSTRAINT "fk_rails_d15744e438"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_music_id" ON "favorites" ("music_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_user_id" ON "favorites" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "favorites" ("id","user_id","created_at","updated_at","value","music_id")
+                     SELECT "id","user_id","created_at","updated_at","value","music_id" FROM "afavorites"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "afavorites"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (105.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "amusics" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "photo" blob DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "genre_id" integer DEFAULT NULL, "average" float DEFAULT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_amusics_on_genre_id" ON "amusics" ("genre_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "amusics" ("id","title","description","photo","created_at","updated_at","genre_id","average")
+                     SELECT "id","title","description","photo","created_at","updated_at","genre_id","average" FROM "musics"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE "musics"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "musics" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "photo" blob DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "genre_id" integer DEFAULT NULL, "average" float DEFAULT NULL, CONSTRAINT "fk_rails_2b1fba23a2"
+FOREIGN KEY ("genre_id")
+  REFERENCES "genres" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_musics_on_genre_id" ON "musics" ("genre_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "musics" ("id","title","description","photo","created_at","updated_at","genre_id","average")
+                     SELECT "id","title","description","photo","created_at","updated_at","genre_id","average" FROM "amusics"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "amusics"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (104.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aratings" ("id" integer NOT NULL PRIMARY KEY, "value" integer DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "music_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_user_id" ON "aratings" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_music_id" ON "aratings" ("music_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "aratings" ("id","value","user_id","created_at","updated_at","music_id")
+                     SELECT "id","value","user_id","created_at","updated_at","music_id" FROM "ratings"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE "ratings"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer NOT NULL PRIMARY KEY, "value" integer DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "music_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_0fe41d02ef"
+FOREIGN KEY ("music_id")
+  REFERENCES "musics" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_music_id" ON "ratings" ("music_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_user_id" ON "ratings" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "ratings" ("id","value","user_id","created_at","updated_at","music_id")
+                     SELECT "id","value","user_id","created_at","updated_at","music_id" FROM "aratings"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "aratings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (84.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aratings" ("id" integer NOT NULL PRIMARY KEY, "value" integer DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "music_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_user_id" ON "aratings" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_music_id" ON "aratings" ("music_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aratings" ("id","value","user_id","created_at","updated_at","music_id")
+                     SELECT "id","value","user_id","created_at","updated_at","music_id" FROM "ratings"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE "ratings"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer NOT NULL PRIMARY KEY, "value" integer DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "music_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_0fe41d02ef"
+FOREIGN KEY ("music_id")
+  REFERENCES "musics" ("id")
+, CONSTRAINT "fk_rails_a7dfeb9f5f"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_music_id" ON "ratings" ("music_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_user_id" ON "ratings" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "ratings" ("id","value","user_id","created_at","updated_at","music_id")
+                     SELECT "id","value","user_id","created_at","updated_at","music_id" FROM "aratings"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "aratings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (107.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (105.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (103.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220422115209)[0m
+  [1m[35m (70.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220413140721),
+(20220413141910),
+(20220413150747),
+(20220418200503),
+(20220418230427),
+(20220418235916),
+(20220421192724),
+(20220421194152),
+(20220421194427),
+(20220421200328),
+(20220421205055),
+(20220421213631);
+
+[0m
+  [1m[35m (121.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-23 17:44:33.334772"], ["updated_at", "2022-04-23 17:44:33.334772"]]
+  [1m[36mTRANSACTION (68.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.7ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2022-04-23 17:44:33.425974"], ["key", "environment"]]
+  [1m[36mTRANSACTION (105.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "980df9e0a4bd2caf2ac25c48de0180739e9b2ed2"], ["created_at", "2022-04-23 17:44:33.551157"], ["updated_at", "2022-04-23 17:44:33.551157"]]
+  [1m[36mTRANSACTION (75.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "teste@teste"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "E9NXNJkAXCWMjLocvg4L"]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "is_admin", "created_at", "updated_at", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "teste@teste"], ["encrypted_password", "$2a$12$LRc7A/DoszOktWCYc4S5aOqYm.TvoZHZ68ODAP2lOInpWhWuSfio."], ["name", "Teste"], ["is_admin", 1], ["created_at", "2022-04-23 17:44:34.201073"], ["updated_at", "2022-04-23 17:44:34.201073"], ["authentication_token", "E9NXNJkAXCWMjLocvg4L"]]
+  [1m[36mTRANSACTION (116.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (0.7ms)[0m  [1m[32mINSERT INTO "genres" ("id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["id", 1], ["name", "Rock"], ["created_at", "2022-04-23 17:44:34.359862"], ["updated_at", "2022-04-23 17:44:34.359862"]]
+  [1m[36mTRANSACTION (114.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (2.1ms)[0m  [1m[32mINSERT INTO "genres" ("id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["id", 2], ["name", "MPB"], ["created_at", "2022-04-23 17:44:34.490157"], ["updated_at", "2022-04-23 17:44:34.490157"]]
+  [1m[36mTRANSACTION (128.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Create (1.1ms)[0m  [1m[32mINSERT INTO "genres" ("id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["id", 3], ["name", "Pop"], ["created_at", "2022-04-23 17:44:34.659367"], ["updated_at", "2022-04-23 17:44:34.659367"]]
+  [1m[36mTRANSACTION (73.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (1.0ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at", "genre_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Rock Song 1"], ["description", "Rock Song 1 description"], ["created_at", "2022-04-23 17:44:34.829831"], ["updated_at", "2022-04-23 17:44:34.829831"], ["genre_id", 1]]
+  [1m[36mTRANSACTION (105.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (1.0ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at", "genre_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Rock Song 2"], ["description", "Rock Song 2 description"], ["created_at", "2022-04-23 17:44:34.960409"], ["updated_at", "2022-04-23 17:44:34.960409"], ["genre_id", 1]]
+  [1m[36mTRANSACTION (89.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.9ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at", "genre_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Rock Song 3"], ["description", "Rock Song 3 description"], ["created_at", "2022-04-23 17:44:35.070914"], ["updated_at", "2022-04-23 17:44:35.070914"], ["genre_id", 1]]
+  [1m[36mTRANSACTION (79.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.8ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at", "genre_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Rock Song 4"], ["description", "Rock Song 4 description"], ["created_at", "2022-04-23 17:44:35.165112"], ["updated_at", "2022-04-23 17:44:35.165112"], ["genre_id", 1]]
+  [1m[36mTRANSACTION (106.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.8ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at", "genre_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Rock Song 5"], ["description", "Rock Song 5 description"], ["created_at", "2022-04-23 17:44:35.293415"], ["updated_at", "2022-04-23 17:44:35.293415"], ["genre_id", 1]]
+  [1m[36mTRANSACTION (109.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.6ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at", "genre_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "MPB Song 1"], ["description", "MPB Song 1 description"], ["created_at", "2022-04-23 17:44:35.417635"], ["updated_at", "2022-04-23 17:44:35.417635"], ["genre_id", 2]]
+  [1m[36mTRANSACTION (66.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.5ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at", "genre_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "MPB Song 2"], ["description", "MPB Song 2 description"], ["created_at", "2022-04-23 17:44:35.495833"], ["updated_at", "2022-04-23 17:44:35.495833"], ["genre_id", 2]]
+  [1m[36mTRANSACTION (114.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.7ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at", "genre_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "MPB Song 3"], ["description", "MPB Song 3 description"], ["created_at", "2022-04-23 17:44:35.623920"], ["updated_at", "2022-04-23 17:44:35.623920"], ["genre_id", 2]]
+  [1m[36mTRANSACTION (92.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.6ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at", "genre_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "MPB Song 4"], ["description", "MPB Song 4 description"], ["created_at", "2022-04-23 17:44:35.741278"], ["updated_at", "2022-04-23 17:44:35.741278"], ["genre_id", 2]]
+  [1m[36mTRANSACTION (71.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.5ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at", "genre_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "MPB Song 5"], ["description", "MPB Song 5 description"], ["created_at", "2022-04-23 17:44:35.913725"], ["updated_at", "2022-04-23 17:44:35.913725"], ["genre_id", 2]]
+  [1m[36mTRANSACTION (83.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.7ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at", "genre_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Pop Song 1"], ["description", "Pop Song 1 description"], ["created_at", "2022-04-23 17:44:36.008122"], ["updated_at", "2022-04-23 17:44:36.008122"], ["genre_id", 3]]
+  [1m[36mTRANSACTION (84.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (0.7ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at", "genre_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Pop Song 2"], ["description", "Pop Song 2 description"], ["created_at", "2022-04-23 17:44:36.155479"], ["updated_at", "2022-04-23 17:44:36.155479"], ["genre_id", 3]]
+  [1m[36mTRANSACTION (83.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (6.3ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at", "genre_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Pop Song 3"], ["description", "Pop Song 3 description"], ["created_at", "2022-04-23 17:44:36.313239"], ["updated_at", "2022-04-23 17:44:36.313239"], ["genre_id", 3]]
+  [1m[36mTRANSACTION (68.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (1.5ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at", "genre_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Pop Song 4"], ["description", "Pop Song 4 description"], ["created_at", "2022-04-23 17:44:36.410088"], ["updated_at", "2022-04-23 17:44:36.410088"], ["genre_id", 3]]
+  [1m[36mTRANSACTION (86.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMusic Create (4.0ms)[0m  [1m[32mINSERT INTO "musics" ("title", "description", "created_at", "updated_at", "genre_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Pop Song 5"], ["description", "Pop Song 5 description"], ["created_at", "2022-04-23 17:44:36.571076"], ["updated_at", "2022-04-23 17:44:36.571076"], ["genre_id", 3]]
+  [1m[36mTRANSACTION (118.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user1@mail"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "5-GG4bwDvikxPPzsD8HQ"]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "is_admin", "created_at", "updated_at", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "user1@mail"], ["encrypted_password", "$2a$12$bbbEV7hN7hQTjbQcbXJQKOxw94DxarQzXw21buYG2PaAU5EaAFM4K"], ["name", "User1"], ["is_admin", 0], ["created_at", "2022-04-23 17:44:37.109674"], ["updated_at", "2022-04-23 17:44:37.109674"], ["authentication_token", "5-GG4bwDvikxPPzsD8HQ"]]
+  [1m[36mTRANSACTION (100.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user2@mail"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "b15ogTuTmKWYZLxyA78Q"]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "is_admin", "created_at", "updated_at", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "user2@mail"], ["encrypted_password", "$2a$12$F8j2247pysw7hrElEuQWF.6GRUWy/wyJ6eQn5KYYA.xca.atmXN3K"], ["name", "User2"], ["is_admin", 0], ["created_at", "2022-04-23 17:44:37.602611"], ["updated_at", "2022-04-23 17:44:37.602611"], ["authentication_token", "b15ogTuTmKWYZLxyA78Q"]]
+  [1m[36mTRANSACTION (93.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user3@mail"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "QEu5UQ8RHa8pe11yGp7L"]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "is_admin", "created_at", "updated_at", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "user3@mail"], ["encrypted_password", "$2a$12$TWr7M7FbkBPnE.KF48N6AuCFg.mFCJw88Dw9WDIB6a56EbJIAET6C"], ["name", "User3"], ["is_admin", 0], ["created_at", "2022-04-23 17:44:38.151377"], ["updated_at", "2022-04-23 17:44:38.151377"], ["authentication_token", "QEu5UQ8RHa8pe11yGp7L"]]
+  [1m[36mTRANSACTION (85.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMusic Load (0.4ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFavorite Create (1.2ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "created_at", "updated_at", "value", "music_id") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["created_at", "2022-04-23 17:44:38.322721"], ["updated_at", "2022-04-23 17:44:38.322721"], ["value", 1], ["music_id", 1]]
+  [1m[36mTRANSACTION (88.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMusic Load (0.2ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.7ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "created_at", "updated_at", "value", "music_id") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["created_at", "2022-04-23 17:44:38.441184"], ["updated_at", "2022-04-23 17:44:38.441184"], ["value", 1], ["music_id", 9]]
+  [1m[36mTRANSACTION (77.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMusic Load (0.2ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.7ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "created_at", "updated_at", "value", "music_id") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["created_at", "2022-04-23 17:44:38.548802"], ["updated_at", "2022-04-23 17:44:38.548802"], ["value", -1], ["music_id", 12]]
+  [1m[36mTRANSACTION (94.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMusic Load (0.5ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.9ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "created_at", "updated_at", "value", "music_id") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["created_at", "2022-04-23 17:44:38.673777"], ["updated_at", "2022-04-23 17:44:38.673777"], ["value", 1], ["music_id", 6]]
+  [1m[36mTRANSACTION (93.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMusic Load (0.1ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.6ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "created_at", "updated_at", "value", "music_id") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["created_at", "2022-04-23 17:44:38.787295"], ["updated_at", "2022-04-23 17:44:38.787295"], ["value", 1], ["music_id", 14]]
+  [1m[36mTRANSACTION (128.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMusic Load (0.1ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFavorite Create (1.0ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "created_at", "updated_at", "value", "music_id") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["created_at", "2022-04-23 17:44:38.955012"], ["updated_at", "2022-04-23 17:44:38.955012"], ["value", -1], ["music_id", 1]]
+  [1m[36mTRANSACTION (100.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMusic Load (0.1ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.5ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "created_at", "updated_at", "value", "music_id") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 3], ["created_at", "2022-04-23 17:44:39.070648"], ["updated_at", "2022-04-23 17:44:39.070648"], ["value", 1], ["music_id", 11]]
+  [1m[36mTRANSACTION (96.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMusic Load (0.1ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.5ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "created_at", "updated_at", "value", "music_id") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 3], ["created_at", "2022-04-23 17:44:39.182875"], ["updated_at", "2022-04-23 17:44:39.182875"], ["value", 1], ["music_id", 3]]
+  [1m[36mTRANSACTION (109.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMusic Load (0.2ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.6ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "created_at", "updated_at", "value", "music_id") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 3], ["created_at", "2022-04-23 17:44:39.393646"], ["updated_at", "2022-04-23 17:44:39.393646"], ["value", -1], ["music_id", 6]]
+  [1m[36mTRANSACTION (147.7ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/api/v1/musics/index" for 127.0.0.1 at 2022-04-23 13:48:41 -0400
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::MusicsController#index as HTML
+  [1m[36mMusic Load (19.2ms)[0m  [1m[34mSELECT "musics".* FROM "musics"[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (11.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 10]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 11]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 12]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 13]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 14]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 15]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (13.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 6], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 14], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (709.19ms)
+Completed 200 OK in 3028ms (Views: 2786.6ms | ActiveRecord: 55.5ms | Allocations: 47284)
+
+
+Started GET "/api/v1/musics/index" for 127.0.0.1 at 2022-04-23 14:18:11 -0400
+Processing by Api::V1::MusicsController#index as HTML
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+  [1m[36mMusic Load (3.5ms)[0m  [1m[34mSELECT "musics".* FROM "musics"[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.8ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.9ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (59.7ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (21.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (1.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.7ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 10]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.7ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 11]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 12]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.8ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 13]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (2.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 14]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (5.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 15]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (1.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 6], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (4.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (31.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 14], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (2.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2024.53ms)
+Completed 200 OK in 2127ms (Views: 2125.3ms | ActiveRecord: 151.8ms | Allocations: 29835)
+
+
+Started GET "/api/v1/musics/index" for 127.0.0.1 at 2022-04-23 14:22:10 -0400
+Processing by Api::V1::MusicsController#index as HTML
+  [1m[36mMusic Load (0.5ms)[0m  [1m[34mSELECT "musics".* FROM "musics"[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 10]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 11]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 12]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 13]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 14]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 15]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 6], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 14], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (162.19ms)
+Completed 200 OK in 171ms (Views: 161.8ms | ActiveRecord: 8.3ms | Allocations: 29032)
+
+
+Started GET "/api/v1/musics/index" for 127.0.0.1 at 2022-04-23 14:22:35 -0400
+Processing by Api::V1::MusicsController#index as HTML
+  [1m[36mMusic Load (0.4ms)[0m  [1m[34mSELECT "musics".* FROM "musics"[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 10]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 11]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 12]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 13]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 14]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 15]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 6], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 14], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (226.76ms)
+Completed 200 OK in 234ms (Views: 226.0ms | ActiveRecord: 7.1ms | Allocations: 29013)
+
+
+Started GET "/api/v1/musics/index" for 127.0.0.1 at 2022-04-23 14:25:55 -0400
+Processing by Api::V1::MusicsController#index as HTML
+  [1m[36mMusic Load (0.6ms)[0m  [1m[34mSELECT "musics".* FROM "musics"[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 10]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 11]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 12]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 13]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 14]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 15]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 6], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 14], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (176.05ms)
+Completed 200 OK in 187ms (Views: 176.6ms | ActiveRecord: 9.1ms | Allocations: 29012)
+
+
+Started GET "/api/v1/musics/index" for 127.0.0.1 at 2022-04-23 14:37:57 -0400
+Processing by Api::V1::MusicsController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+  [1m[36mMusic Load (0.4ms)[0m  [1m[34mSELECT "musics".* FROM "musics"[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 10]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 11]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 12]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 13]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 14]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 15]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 6], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 14], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (726.72ms)
+Completed 200 OK in 877ms (Views: 876.3ms | ActiveRecord: 10.4ms | Allocations: 29661)
+
+
+Started GET "/api/v1/musics/index" for 127.0.0.1 at 2022-04-23 14:40:18 -0400
+Processing by Api::V1::MusicsController#index as HTML
+  [1m[36mMusic Load (0.4ms)[0m  [1m[34mSELECT "musics".* FROM "musics"[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 10]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 11]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 12]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 13]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 14]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 15]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 6], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 14], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (181.04ms)
+Completed 200 OK in 190ms (Views: 179.9ms | ActiveRecord: 9.6ms | Allocations: 29030)
+
+
+Started GET "/api/v1/musics/index" for 127.0.0.1 at 2022-04-23 14:41:42 -0400
+Processing by Api::V1::MusicsController#index as HTML
+  [1m[36mMusic Load (0.9ms)[0m  [1m[34mSELECT "musics".* FROM "musics"[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (10.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 10]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 11]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 12]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 13]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 14]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 15]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 6], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 14], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (250.4ms)
+Completed 200 OK in 270ms (Views: 248.7ms | ActiveRecord: 19.9ms | Allocations: 29030)
+
+
+Started GET "/api/v1/musics/show/1" for 127.0.0.1 at 2022-04-23 14:44:50 -0400
+Processing by Api::V1::MusicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMusic Load (0.8ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+  [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:14:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers] Rendered MusicSerializer with ActiveModelSerializers::Adapter::Attributes (12.26ms)
+Completed 200 OK in 126ms (Views: 14.4ms | ActiveRecord: 1.4ms | Allocations: 2372)
+
+
+Started GET "/api/v1/musics/index" for 127.0.0.1 at 2022-04-23 14:45:07 -0400
+Processing by Api::V1::MusicsController#index as HTML
+  [1m[36mMusic Load (0.6ms)[0m  [1m[34mSELECT "musics".* FROM "musics"[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 10]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 11]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 12]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 13]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 14]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 15]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 6], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 14], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (201.05ms)
+Completed 200 OK in 238ms (Views: 228.4ms | ActiveRecord: 7.7ms | Allocations: 29012)
+
+
+Started GET "/api/v1/musics/show/2" for 127.0.0.1 at 2022-04-23 14:45:08 -0400
+Processing by Api::V1::MusicsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusic Load (0.7ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+  [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 2]]
+  ↳ app/controllers/api/v1/musics_controller.rb:14:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers] Rendered MusicSerializer with ActiveModelSerializers::Adapter::Attributes (4.25ms)
+Completed 200 OK in 16ms (Views: 6.1ms | ActiveRecord: 1.3ms | Allocations: 2140)
+
+
+Started GET "/api/v1/musics/index" for 127.0.0.1 at 2022-04-23 14:45:12 -0400
+Processing by Api::V1::MusicsController#index as HTML
+  [1m[36mMusic Load (0.4ms)[0m  [1m[34mSELECT "musics".* FROM "musics"[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 10]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 11]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 12]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 13]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 14]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 15]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 6], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 14], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (169.27ms)
+Completed 200 OK in 182ms (Views: 173.6ms | ActiveRecord: 7.6ms | Allocations: 29011)
+
+
+Started GET "/api/v1/musics/show/9" for 127.0.0.1 at 2022-04-23 14:45:15 -0400
+Processing by Api::V1::MusicsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mMusic Load (0.5ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+  [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 9]]
+  ↳ app/controllers/api/v1/musics_controller.rb:14:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers] Rendered MusicSerializer with ActiveModelSerializers::Adapter::Attributes (7.26ms)
+Completed 200 OK in 21ms (Views: 8.8ms | ActiveRecord: 1.0ms | Allocations: 2140)
+
+
+Started GET "/api/v1/musics/index" for 127.0.0.1 at 2022-04-23 14:45:30 -0400
+Processing by Api::V1::MusicsController#index as HTML
+  [1m[36mMusic Load (0.5ms)[0m  [1m[34mSELECT "musics".* FROM "musics"[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 10]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 11]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 12]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 13]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 14]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 15]]
+[active_model_serializers]   ↳ app/controllers/api/v1/musics_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 6], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 14], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (184.67ms)
+Completed 200 OK in 197ms (Views: 188.1ms | ActiveRecord: 8.0ms | Allocations: 29011)
+
+
+Started GET "/api/v1/musics/favorited_by/undefined" for 127.0.0.1 at 2022-04-23 15:13:43 -0400
+Started GET "/api/v1/musics/show/4" for 127.0.0.1 at 2022-04-23 15:13:43 -0400
+Processing by Api::V1::MusicsController#show as HTML
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/musics/favorited_by/undefined"):
+  
+  Parameters: {"id"=>"4"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+  [1m[36mMusic Load (15.9ms)[0m  [1m[34mSELECT "musics".* FROM "musics" WHERE "musics"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/musics_controller.rb:12:in `show'
+  [1m[36mRating Load (8.9ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."music_id" = ?[0m  [["music_id", 4]]
+  ↳ app/controllers/api/v1/musics_controller.rb:14:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (14.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Music"], ["name", "photo"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/music_serializer.rb:6:in `photo_url'
+[active_model_serializers] Rendered MusicSerializer with ActiveModelSerializers::Adapter::Attributes (63.81ms)
+Completed 200 OK in 267ms (Views: 69.2ms | ActiveRecord: 91.0ms | Allocations: 2716)
+
+
