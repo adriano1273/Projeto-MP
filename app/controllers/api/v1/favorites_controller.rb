@@ -13,8 +13,12 @@ class Api::V1::FavoritesController < ApplicationController
 
   def create
     favorite = Favorite.new(favorites_params)
-    favorite.save!
-    render json: favorite, status: :created
+    if Favorite.where(user_id: favorite.user_id, music_id: favorite.music_id) == nil
+      favorite.save!
+      render json: favorite, status: :created
+    else
+      render json: {message: "essa musica ja esta em sua lista de favoritos"}, status: :ok
+    end
   rescue StandardError => e
     render json: { message: e.message }, status: :unprocessable_entity
   end

@@ -40,10 +40,12 @@ end
 # cenario 1
 
 Favorite.create(user_id: 1, music_id: 1, value: 1);
+Favorite.create(user_id: 1, music_id: 2, value: 1);
 Favorite.create(user_id: 1, music_id: 9, value: 1);
 Favorite.create(user_id: 1, music_id: 12, value: -1);
 
 Favorite.create(user_id: 2, music_id: 6, value: 1);
+Favorite.create(user_id: 2, music_id: 9, value: 1);
 Favorite.create(user_id: 2, music_id: 14, value: 1);
 Favorite.create(user_id: 2, music_id: 1, value: -1);
 

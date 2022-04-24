@@ -49,10 +49,9 @@ module Api
       end
 
       def favorited_by
-        music = Music.find(params[:id])
-        favorites = Favorite.where(id: music.id, value: 1)
-        user_ids = favorites.pluck(user_id)
-        users = User.where(id: users_ids)
+        favorites = Favorite.where(music_id: params[:id], value: 1)
+        user_ids = favorites.pluck(:user_id)
+        users = User.where(id: user_ids)
         render json: users, status: :ok
         
       rescue StandardError
