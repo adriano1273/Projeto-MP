@@ -19,16 +19,19 @@ Genre.create(id: 3,name: "Pop")
 5.times do |i|
   puts "Cadastrando músicas de Rock #{i+1}"
   Music.create(title: "Rock Song #{i+1}", description: "Rock Song #{i+1} description", genre_id: 1)
+  Music.last.photo.attach(io: File.open('./public/rock.jpg'), filename: 'rock.jpg')
 end
 
 5.times do |i|
   puts "Cadastrando músicas de MPB #{i+1}"
   Music.create(title: "MPB Song #{i+1}", description: "MPB Song #{i+1} description", genre_id: 2)
+  Music.last.photo.attach(io: File.open('./public/mpb.jpg'), filename: 'mpb.jpg')
 end
 
 5.times do |i|
   puts "Cadastrando músicas de Pop #{i+1}"
   Music.create(title: "Pop Song #{i+1}", description: "Pop Song #{i+1} description", genre_id: 3)
+  Music.last.photo.attach(io: File.open('./public/pop.jpg'), filename: 'pop.jpg')
 end
 
 
@@ -38,7 +41,7 @@ end
 end
 
 # cenario 1
-
+=begin
 Favorite.create(user_id: 1, music_id: 1, value: 1);
 Favorite.create(user_id: 1, music_id: 2, value: 1);
 Favorite.create(user_id: 1, music_id: 9, value: 1);
@@ -52,7 +55,7 @@ Favorite.create(user_id: 2, music_id: 1, value: -1);
 Favorite.create(user_id: 3, music_id: 11, value: 1);
 Favorite.create(user_id: 3, music_id: 3, value: 1);
 Favorite.create(user_id: 3, music_id: 6, value: -1);
-
+=end
 
 #cenário 2
 =begin
@@ -61,9 +64,8 @@ Favorite.create(user_id: 1, music_id: 1, value: 1);
 Favorite.create(user_id: 1, music_id: 5, value: -1);
 =end
 
-
 #cenário 3
-=begin
+
 # quando pedir sugestao por interesse tem que retornar Pop song 1,2 e 3
 Favorite.create(user_id: 1, music_id: 1, value: 1);
 Favorite.create(user_id: 1, music_id: 13, value: -1);
@@ -73,7 +75,7 @@ Favorite.create(user_id: 2, music_id: 10, value: 1);
 Favorite.create(user_id: 2, music_id: 11, value: 1);
 Favorite.create(user_id: 2, music_id: 12, value: 1);
 Favorite.create(user_id: 2, music_id: 13, value: 1);
-=end
+
 
 
 
