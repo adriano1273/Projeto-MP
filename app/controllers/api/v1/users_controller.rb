@@ -88,7 +88,7 @@ module Api
         c_user = User.find(params[:id])
         favorites = c_user.favorites.where(value: 1)
 
-        hated = user.favorites.where(value: -1)
+        hated = c_user.favorites.where(value: -1)
         hated_ids = hated.pluck(:music_id)
         hated_musics = Music.where(id: hated_ids)
 
@@ -112,9 +112,8 @@ module Api
 
         render json: suggestion, status: 200
         
-      rescue StandardError
-        head(:bad_request)
-        
+      rescue StandardError => e
+        render json: { message: e.message }, status: 400
       end
 
       private
