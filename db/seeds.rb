@@ -6,7 +6,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(name: "Teste", email: "Teste@teste", password: "Teste123", is_admin: true)
+#User.create(name: "Teste", email: "Teste@teste", password: "Teste123", is_admin: true)
 
 puts "Cadastrando Generos de musica"
 Genre.create(id: 1,name: "Rock")
