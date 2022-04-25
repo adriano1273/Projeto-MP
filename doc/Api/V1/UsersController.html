@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Api::V1::UsersController - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link"><a href="../../ApplicationController.html">ApplicationController</a>
+</div>
+
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-i-create">#create</a>
+    <li ><a href="#method-i-delete">#delete</a>
+    <li ><a href="#method-i-index">#index</a>
+    <li ><a href="#method-i-login">#login</a>
+    <li ><a href="#method-i-logout">#logout</a>
+    <li ><a href="#method-i-my_favorites">#my_favorites</a>
+    <li ><a href="#method-i-recomend_by_genre">#recomend_by_genre</a>
+    <li ><a href="#method-i-recomend_by_interest">#recomend_by_interest</a>
+    <li ><a href="#method-i-show">#show</a>
+    <li ><a href="#method-i-update">#update</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Api::V1::UsersController">
+  <h1 id="class-Api::V1::UsersController" class="class">
+    class Api::V1::UsersController
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-create" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>&lt;EU004&gt; Eu como usuário quero fazer cadastro para definir  meus gostos musicais, favoritar meus itens e montar playlists . Cria um novo registro de usuário</p>
+
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
+  <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">user_params</span>)
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">save!</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-identifier">user</span>, <span class="ruby-value">status:</span> <span class="ruby-value">201</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>, <span class="ruby-value">status:</span> <span class="ruby-value">500</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-delete" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">delete</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>&lt;EA001&gt; Eu como administrador quero editar características de música, usuários para evitar inconsistências ou consertar o sistema. Apaga o usuário da base de dados</p>
+
+          <div class="method-source-code" id="delete-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete</span>
+  <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">destroy!</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-identifier">user</span>, <span class="ruby-value">status:</span> <span class="ruby-value">200</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span>
+  <span class="ruby-identifier">head</span>(<span class="ruby-value">:bad_request</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-index" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>&lt;EA002&gt; Eu como administrador quero ver todos os usuários para efeito de gerenciamento. Mostra ao administrador uma lista de todos os usuários da plataforma</p>
+
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
+  <span class="ruby-identifier">users</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">all</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-identifier">users</span>, <span class="ruby-value">status:</span> <span class="ruby-value">200</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-login" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">login</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>&lt;EU001&gt; Eu como usuário quero entrar no aplicativo para definir meus gostos musicais, favoritar meus itens e montar playlists. Faz o login do usuário</p>
+
+          <div class="method-source-code" id="login-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">login</span>
+  <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by!</span>(<span class="ruby-value">email:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">valid_password?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:password</span>])
+    <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-identifier">user</span>, <span class="ruby-value">status:</span> <span class="ruby-value">200</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">head</span>(<span class="ruby-value">:unauthorized</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-identifier">e</span>, <span class="ruby-value">status:</span> <span class="ruby-value">404</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-logout" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">logout</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>&lt;EU005&gt; Eu como usuário quero fazer logout para encerrar a sessão. Faz o logout do usuário</p>
+
+          <div class="method-source-code" id="logout-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">logout</span>
+  <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">update!</span> <span class="ruby-value">authentication_token:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> { <span class="ruby-value">message:</span> <span class="ruby-string">&#39;Volte sempre!&#39;</span> }
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-identifier">e</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:bad_request</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-my_favorites" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">my_favorites</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Mostra a página de favoritos</p>
+
+          <div class="method-source-code" id="my_favorites-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">my_favorites</span>
+  <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-identifier">favorites</span> = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">favorites</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">value:</span> <span class="ruby-value">1</span>)
+
+  <span class="ruby-identifier">ids</span> = <span class="ruby-identifier">favorites</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:music_id</span>)
+  <span class="ruby-identifier">favorite_musics</span> = <span class="ruby-constant">Music</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">id:</span> <span class="ruby-identifier">ids</span>)
+
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-identifier">favorite_musics</span>, <span class="ruby-value">status:</span> <span class="ruby-value">200</span>
+
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span>
+  <span class="ruby-identifier">head</span>(<span class="ruby-value">:bad_request</span>)
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-recomend_by_genre" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">recomend_by_genre</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>&lt;EU002&gt; Eu como usuário quero ser capaz de receber recomendações de música    </p>
+
+<p>Recomenda músicas aos usuários baseado no gênero</p>
+
+          <div class="method-source-code" id="recomend_by_genre-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">recomend_by_genre</span>
+  <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-identifier">favorites</span> = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">favorites</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">value:</span> <span class="ruby-value">1</span>)
+
+  <span class="ruby-identifier">hated</span> = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">favorites</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">value:</span> <span class="ruby-value">-1</span>)
+  <span class="ruby-identifier">hated_ids</span> = <span class="ruby-identifier">hated</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:music_id</span>)
+  <span class="ruby-identifier">hated_musics</span> = <span class="ruby-constant">Music</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">id:</span> <span class="ruby-identifier">hated_ids</span>)
+
+  <span class="ruby-identifier">music_reference</span> = <span class="ruby-identifier">favorites</span>.<span class="ruby-identifier">sample</span>.<span class="ruby-identifier">music_id</span>
+  <span class="ruby-identifier">ids</span> = <span class="ruby-identifier">favorites</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:music_id</span>)
+  <span class="ruby-identifier">favorite_musics</span> = <span class="ruby-constant">Music</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">id:</span> <span class="ruby-identifier">ids</span>)
+  <span class="ruby-identifier">music</span> = <span class="ruby-constant">Music</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">id:</span> <span class="ruby-identifier">music_reference</span>)
+
+  <span class="ruby-identifier">suggested_genre</span> = <span class="ruby-constant">Genre</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">id:</span> <span class="ruby-identifier">music</span>.<span class="ruby-identifier">genre_id</span>)
+  <span class="ruby-identifier">suggested_musics</span> = <span class="ruby-constant">Music</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">genre_id:</span> <span class="ruby-identifier">music</span>.<span class="ruby-identifier">genre_id</span>)
+
+  <span class="ruby-identifier">suggestion</span> = <span class="ruby-identifier">suggested_musics</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">favorite_musics</span>
+  <span class="ruby-identifier">suggestion</span> = <span class="ruby-identifier">suggestion</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">hated_musics</span>
+
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-identifier">suggestion</span>, <span class="ruby-value">status:</span> <span class="ruby-value">200</span>
+
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span>
+  <span class="ruby-identifier">head</span>(<span class="ruby-value">:bad_request</span>)
+  
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-recomend_by_interest" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">recomend_by_interest</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>&lt;EU002&gt; Eu como usuário quero ser capaz de receber recomendações de música  Recomenda músicas aos usuários baseado no interesse e favoritas</p>
+
+          <div class="method-source-code" id="recomend_by_interest-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">recomend_by_interest</span>
+
+  <span class="ruby-identifier">c_user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-identifier">favorites</span> = <span class="ruby-identifier">c_user</span>.<span class="ruby-identifier">favorites</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">value:</span> <span class="ruby-value">1</span>)
+
+  <span class="ruby-identifier">hated</span> = <span class="ruby-identifier">c_user</span>.<span class="ruby-identifier">favorites</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">value:</span> <span class="ruby-value">-1</span>)
+  <span class="ruby-identifier">hated_ids</span> = <span class="ruby-identifier">hated</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:music_id</span>)
+  <span class="ruby-identifier">hated_musics</span> = <span class="ruby-constant">Music</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">id:</span> <span class="ruby-identifier">hated_ids</span>)
+
+  <span class="ruby-identifier">ids</span> = <span class="ruby-identifier">favorites</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:music_id</span>)
+  <span class="ruby-identifier">c_user_interests</span> = <span class="ruby-constant">Music</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">id:</span> <span class="ruby-identifier">ids</span>)
+
+  <span class="ruby-identifier">music_reference</span> = <span class="ruby-identifier">favorites</span>.<span class="ruby-identifier">sample</span>.<span class="ruby-identifier">music_id</span>
+  <span class="ruby-identifier">users</span> = <span class="ruby-constant">Favorite</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">music_id:</span> <span class="ruby-identifier">music_reference</span>, <span class="ruby-value">value:</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:user_id</span>) 
+  <span class="ruby-identifier">aux_arr</span> = [<span class="ruby-identifier">c_user</span>.<span class="ruby-identifier">id</span>]
+  <span class="ruby-identifier">users</span> = <span class="ruby-identifier">users</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">aux_arr</span>
+  <span class="ruby-identifier">user_reference_id</span> = <span class="ruby-identifier">users</span>.<span class="ruby-identifier">sample</span>  
+
+  <span class="ruby-identifier">user_reference</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">id:</span> <span class="ruby-identifier">user_reference_id</span>)
+  <span class="ruby-identifier">uref_favorites</span> = <span class="ruby-identifier">user_reference</span>.<span class="ruby-identifier">favorites</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">value:</span> <span class="ruby-value">1</span>)
+  <span class="ruby-identifier">uref_ids</span> = <span class="ruby-identifier">uref_favorites</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:music_id</span>)
+  <span class="ruby-identifier">uref_interests</span> = <span class="ruby-constant">Music</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">id:</span> <span class="ruby-identifier">uref_ids</span>)
+
+  <span class="ruby-identifier">suggestions</span> = <span class="ruby-identifier">uref_interests</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">c_user_interests</span>
+  
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-identifier">suggestions</span>, <span class="ruby-value">status:</span> <span class="ruby-value">200</span>
+  
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> { <span class="ruby-value">message:</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span> }, <span class="ruby-value">status:</span> <span class="ruby-value">400</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-show" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">show</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>&lt;EA001&gt; Eu como administrador quero editar características de música, usuários e gêneros musicais para evitar inconsistências ou consertar o sistema. Mostra aos administradores informações de um determinado usuário</p>
+
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-identifier">current_user</span>, <span class="ruby-value">status:</span> <span class="ruby-value">200</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-update" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>&lt;EA001&gt; Eu como administrador quero editar características de música, usuários e gêneros musicais para evitar inconsistências ou consertar o sistema. Atualiza as informações do usuário</p>
+
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File app/controllers/api/v1/users_controller.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
+  <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">update!</span>(<span class="ruby-identifier">user_params</span>)
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-identifier">user</span>, <span class="ruby-value">status:</span> <span class="ruby-value">200</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span>
+  <span class="ruby-identifier">head</span>(<span class="ruby-value">:unprocessable_entity</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
