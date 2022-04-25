@@ -13,7 +13,7 @@ class Api::V1::FavoritesController < ApplicationController
 
   def create
     favorite = Favorite.new(favorites_params)
-    if Favorite.where(user_id: favorite.user_id, music_id: favorite.music_id) == nil
+    if Favorite.where(user_id: favorite.user_id, music_id: favorite.music_id).size == 0
       favorite.save!
       render json: favorite, status: :created
     else
