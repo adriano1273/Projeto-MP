@@ -57,6 +57,20 @@ module Api
         head(:bad_request)
       end
 
+      def my_favorites
+        user = User.find(params[:id])
+        favorites = user.favorites.where(value: 1)
+
+        ids = favorites.pluck(:music_id)
+        favorite_musics = Music.where(id: ids)
+
+        render json: favorite_musics, status: 200
+
+      rescue StandardError
+        head(:bad_request)
+
+      end
+
       def recomend_by_genre
         user = User.find(params[:id])
         favorites = user.favorites.where(value: 1)
@@ -85,15 +99,18 @@ module Api
 
       def recomend_by_interest
 
+        suggestions = []
+
         c_user = User.find(params[:id])
         favorites = c_user.favorites.where(value: 1)
 
         hated = c_user.favorites.where(value: -1)
         hated_ids = hated.pluck(:music_id)
         hated_musics = Music.where(id: hated_ids)
-
+=begin
         ids = favorites.pluck(:music_id)
         c_user_interests = Music.where(id: ids)
+
         music_reference = favorites.sample.music_id
         users = Favorite.where(music_id: music_reference, value: 1).pluck(:user_id) 
         aux_arr = [c_user.id]
@@ -105,12 +122,35 @@ module Api
         uref_favorites = user_reference.favorites.where(value: 1)
         ids = uref_favorites.pluck(:music_id)
         uref_interests = Music.where(id: ids)
+=end
 
-        suggestion = uref_interests - c_user_interests 
-        suggestion = suggestion - hated_musics
+        2.times do |i|
 
+          if favorites.size == 0
+            break;
+          end
 
-        render json: suggestion, status: 200
+          ids = favorites.pluck(:music_id)
+          c_user_interests = Music.where(id: ids)
+
+          music_reference = favorites.sample.music_id
+          users = Favorite.where(music_id: music_reference, value: 1).pluck(:user_id) 
+          aux_arr = [c_user.id]
+          users = users - aux_arr
+          user_reference_id = users.sample 
+
+          user_reference = User.find_by(id: user_reference_id)
+          uref_favorites = user_reference.favorites.where(value: 1)
+          ids = uref_favorites.pluck(:music_id)
+          uref_interests = Music.where(id: ids)
+
+          suggestion = uref_interests - c_user_interests 
+          suggestions = suggestions + suggestion
+          favorites.pop
+
+        end
+        
+        render json: suggestions, status: 200
         
       rescue StandardError => e
         render json: { message: e.message }, status: 400

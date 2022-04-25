@@ -23,6 +23,8 @@ class Api::V1::FavoritesController < ApplicationController
     render json: { message: e.message }, status: :unprocessable_entity
   end
 
+  
+
   def update
     favorite = Favorite.find(params[:id])
     favorite.update!(favorites_params)

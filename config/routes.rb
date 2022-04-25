@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace 'api' do
     namespace 'v1' do
       scope 'users' do
+
         post '/login', to: 'users#login'
         get '/logout', to: 'users#logout'
         get '/index', to: 'users#index'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
         post '/create', to: 'users#create'
         patch '/update/:id', to: 'users#update'
         delete '/delete/:id', to: 'users#delete'
+        get '/my_favorites/:id', to: 'users#my_favorites'
       end
 
       scope 'ratings' do
