@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Api::V1::Genres", type: :request do
+RSpec.describe 'Api::V1::Genres', type: :request do
   describe '/GET #index' do
     before do
       create(:genre)
@@ -50,7 +52,7 @@ RSpec.describe "Api::V1::Genres", type: :request do
   describe 'Post /Create' do
     let(:params) do
       {
-        name: "string"
+        name: 'string'
       }
     end
 
@@ -64,7 +66,7 @@ RSpec.describe "Api::V1::Genres", type: :request do
       end
 
       it 'creates the genre' do
-        new_genre = Genre.find_by(name: "string")
+        new_genre = Genre.find_by(name: 'string')
         expect(new_genre).not_to be_nil
       end
     end
@@ -77,7 +79,6 @@ RSpec.describe "Api::V1::Genres", type: :request do
       it 'returns an unsuccessful response' do
         expect(response).to have_http_status(422)
       end
-
     end
   end
 
@@ -106,11 +107,11 @@ RSpec.describe "Api::V1::Genres", type: :request do
   end
 
   describe 'PUT /update' do
-    let(:genre) { create(:genre, name: "fizz") }
+    let(:genre) { create(:genre, name: 'fizz') }
 
     context 'when genre exists' do
       before do
-        put "/api/v1/genres/update/#{genre.id}", params: { genre: { name: "buzz" } }
+        put "/api/v1/genres/update/#{genre.id}", params: { genre: { name: 'buzz' } }
       end
 
       it 'respondes with an ok status' do
@@ -119,13 +120,13 @@ RSpec.describe "Api::V1::Genres", type: :request do
 
       it 'changes title' do
         modified_genre = Genre.find_by(id: genre.id)
-        expect(modified_genre.name).to eq("buzz")
+        expect(modified_genre.name).to eq('buzz')
       end
     end
 
     context 'when genre does no exist' do
       before do
-        put "/api/v1/genres/update/#{5}", params: { genre: { name: "buzz" } }
+        put '/api/v1/genres/update/5', params: { genre: { name: 'buzz' } }
       end
 
       it 'respondes with an 422 status' do

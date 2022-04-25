@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Favorite, type: :model do
@@ -10,13 +12,13 @@ RSpec.describe Favorite, type: :model do
   end
 
   describe 'validations' do
-    context "when value is missing" do
+    context 'when value is missing' do
       it { expect(build(:favorite, value: nil)).to_not be_valid }
     end
-    context "when user reference" do
+    context 'when user reference' do
       it { expect(build(:favorite, user_id: nil)).to_not be_valid }
     end
-    context "when music reference" do
+    context 'when music reference' do
       it { expect(build(:favorite, music_id: nil)).to_not be_valid }
     end
   end

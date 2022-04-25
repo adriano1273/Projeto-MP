@@ -9,7 +9,7 @@ module Api
         ratings = Rating.all
         render json: ratings, status: :ok
       end
-      
+
       ##
       # <EU013> Eu como usuário quero ser capaz de conceder, editar e remover uma avaliação de música para condecorar as músicas que gosto.
       # Mostra a nota que o usuário logado deu para a música em que ele está vendo
@@ -41,7 +41,7 @@ module Api
       rescue StandardError
         head(:unprocessable_entity)
       end
-      
+
       ##
       # <EU013> Eu como usuário quero ser capaz de conceder, editar e remover uma avaliação de música para condecorar as músicas que gosto.<EU013> Eu como usuário quero ser capaz de conceder, editar e remover uma avaliação de música para condecorar as músicas que gosto.
       # Remove a nota que determinado usuário deu para a música

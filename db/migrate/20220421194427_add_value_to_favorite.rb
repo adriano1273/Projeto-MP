@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddValueToFavorite < ActiveRecord::Migration[6.1]
   def change
     add_column :favorites, :value, :int

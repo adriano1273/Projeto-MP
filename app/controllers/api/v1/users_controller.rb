@@ -5,7 +5,7 @@ module Api
     class UsersController < ApplicationController
       acts_as_token_authentication_handler_for User, only: %i[logout show]
       wrap_parameters :user, include: %i[name password email is_admin]
-      
+
       ##
       # <EU001> Eu como usuário quero entrar no aplicativo para definir meus gostos musicais, favoritar meus itens e montar playlists.
       # Faz o login do usuário
@@ -55,7 +55,7 @@ module Api
       def show
         render json: current_user, status: 200
       end
-      
+
       ##
       # <EA001> Eu como administrador quero editar características de música, usuários e gêneros musicais para evitar inconsistências ou consertar o sistema.
       # Atualiza as informações do usuário
@@ -87,13 +87,12 @@ module Api
         favorite_musics = Music.where(id: ids)
 
         render json: favorite_musics, status: 200
-
       rescue StandardError
         head(:bad_request)
-
       end
+
       ##
-      # <EU002> Eu como usuário quero ser capaz de receber recomendações de música       
+      # <EU002> Eu como usuário quero ser capaz de receber recomendações de música
       # Recomenda músicas aos usuários baseado no gênero
       def recomend_by_genre
         user = User.find(params[:id])
@@ -112,20 +111,17 @@ module Api
         suggested_musics = Music.where(genre_id: music.genre_id)
 
         suggestion = suggested_musics - favorite_musics
-        suggestion = suggestion - hated_musics
+        suggestion -= hated_musics
 
         render json: suggestion, status: 200
-
       rescue StandardError
         head(:bad_request)
-        
       end
 
       ##
-      # <EU002> Eu como usuário quero ser capaz de receber recomendações de música 
+      # <EU002> Eu como usuário quero ser capaz de receber recomendações de música
       # Recomenda músicas aos usuários baseado no interesse e favoritas
       def recomend_by_interest
-
         c_user = User.find(params[:id])
         favorites = c_user.favorites.where(value: 1)
 
@@ -137,10 +133,10 @@ module Api
         c_user_interests = Music.where(id: ids)
 
         music_reference = favorites.sample.music_id
-        users = Favorite.where(music_id: music_reference, value: 1).pluck(:user_id) 
+        users = Favorite.where(music_id: music_reference, value: 1).pluck(:user_id)
         aux_arr = [c_user.id]
-        users = users - aux_arr
-        user_reference_id = users.sample  
+        users -= aux_arr
+        user_reference_id = users.sample
 
         user_reference = User.find_by(id: user_reference_id)
         uref_favorites = user_reference.favorites.where(value: 1)
@@ -148,9 +144,8 @@ module Api
         uref_interests = Music.where(id: uref_ids)
 
         suggestions = uref_interests - c_user_interests
-        
+
         render json: suggestions, status: 200
-        
       rescue StandardError => e
         render json: { message: e.message }, status: 400
       end

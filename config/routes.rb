@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   namespace 'api' do
     namespace 'v1' do
       scope 'users' do
-
         post '/login', to: 'users#login'
         get '/logout', to: 'users#logout'
         get '/index', to: 'users#index'
@@ -33,7 +32,7 @@ Rails.application.routes.draw do
       scope 'musics' do
         get 'index', to: 'musics#index', as: :music_index
         get 'show/:id', to: 'musics#show', as: :music_show
-        get 'favorited_by/:id', to: 'musics#favorited_by' 
+        get 'favorited_by/:id', to: 'musics#favorited_by'
         post 'create', to: 'musics#create', as: :music_post
         put 'update/:id', to: 'musics#update', as: :music_put
         delete 'delete/:id', to: 'musics#delete', as: :music_delete
@@ -45,7 +44,7 @@ Rails.application.routes.draw do
         post 'create', to: 'favorites#create'
         put 'update/:id', to: 'favorites#update'
         delete 'delete/:id', to: 'favorites#delete'
-      end      
+      end
 
       scope 'genres' do
         get 'index', to: 'genres#index'
@@ -53,8 +52,7 @@ Rails.application.routes.draw do
         post 'create', to: 'genres#create'
         put 'update/:id', to: 'genres#update'
         delete 'delete/:id', to: 'genres#delete'
-      end  
-      
+      end
     end
   end
 end

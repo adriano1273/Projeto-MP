@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Api::V1::Favorites", type: :request do
+RSpec.describe 'Api::V1::Favorites', type: :request do
   describe '/GET #index' do
     before do
       create(:user, id: 1)
@@ -155,7 +157,7 @@ RSpec.describe "Api::V1::Favorites", type: :request do
 
     context 'when favorite does no exist' do
       before do
-        put "/api/v1/favorites/update/#{1}", params: { favorite: { value: 1 } }
+        put '/api/v1/favorites/update/1', params: { favorite: { value: 1 } }
       end
 
       it 'respondes with an 422 status' do

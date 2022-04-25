@@ -17,11 +17,11 @@ module Api
       def show
         music = Music.find(params[:id])
 
-        if music.ratings.blank?
-          average_rating = 0
-        else
-          average_rating = music.ratings.average(:value).round(1)
-        end
+        average_rating = if music.ratings.blank?
+                           0
+                         else
+                           music.ratings.average(:value).round(1)
+                         end
 
         music.average = average_rating
 
@@ -29,7 +29,7 @@ module Api
       rescue StandardError => e
         render json: { message: e.message }, status: 404
       end
-      
+
       ##
       # <EA003> Eu como administrador quero adicionar músicas à plataforma para que os usuários tenham mais opções de escolha.
       # Adiciona uma nova música ao sistema
@@ -71,7 +71,6 @@ module Api
         user_ids = favorites.pluck(:user_id)
         users = User.where(id: user_ids)
         render json: users, status: :ok
-        
       rescue StandardError
         head(:not_found)
       end
