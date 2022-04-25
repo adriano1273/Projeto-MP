@@ -5,7 +5,10 @@ module Api
     class UsersController < ApplicationController
       acts_as_token_authentication_handler_for User, only: %i[logout show]
       wrap_parameters :user, include: %i[name password email is_admin]
-
+      
+      ##
+      # <EU001> Eu como usuário quero entrar no aplicativo para definir meus gostos musicais, favoritar meus itens e montar playlists.
+      # Faz o login do usuário
       def login
         user = User.find_by!(email: params[:email])
         if user.valid_password?(params[:password])
@@ -17,6 +20,9 @@ module Api
         render json: e, status: 404
       end
 
+      ##
+      # <EU005> Eu como usuário quero fazer logout para encerrar a sessão.
+      # Faz o logout do usuário
       def logout
         current_user.update! authentication_token: nil
         render json: { message: 'Volte sempre!' }
@@ -24,11 +30,17 @@ module Api
         render json: e, status: :bad_request
       end
 
+      ##
+      # <EA002> Eu como administrador quero ver todos os usuários para efeito de gerenciamento.
+      # Mostra ao administrador uma lista de todos os usuários da plataforma
       def index
         users = User.all
         render json: users, status: 200
       end
 
+      ##
+      # <EU004> Eu como usuário quero fazer cadastro para definir  meus gostos musicais, favoritar meus itens e montar playlists .
+      # Cria um novo registro de usuário
       def create
         user = User.new(user_params)
         user.save!
@@ -37,10 +49,16 @@ module Api
         render json: e.message, status: 500
       end
 
+      ##
+      # <EA001> Eu como administrador quero editar características de música, usuários e gêneros musicais para evitar inconsistências ou consertar o sistema.
+      # Mostra aos administradores informações de um determinado usuário
       def show
         render json: current_user, status: 200
       end
-
+      
+      ##
+      # <EA001> Eu como administrador quero editar características de música, usuários e gêneros musicais para evitar inconsistências ou consertar o sistema.
+      # Atualiza as informações do usuário
       def update
         user = User.find(params[:id])
         user.update!(user_params)
@@ -49,6 +67,9 @@ module Api
         head(:unprocessable_entity)
       end
 
+      ##
+      # <EA001> Eu como administrador quero editar características de música, usuários para evitar inconsistências ou consertar o sistema.
+      # Apaga o usuário da base de dados
       def delete
         user = User.find(params[:id])
         user.destroy!
@@ -57,6 +78,7 @@ module Api
         head(:bad_request)
       end
 
+      # Mostra a página de favoritos
       def my_favorites
         user = User.find(params[:id])
         favorites = user.favorites.where(value: 1)
@@ -70,7 +92,9 @@ module Api
         head(:bad_request)
 
       end
-
+      ##
+      # <EU002> Eu como usuário quero ser capaz de receber recomendações de música       
+      # Recomenda músicas aos usuários baseado no gênero
       def recomend_by_genre
         user = User.find(params[:id])
         favorites = user.favorites.where(value: 1)
@@ -97,6 +121,9 @@ module Api
         
       end
 
+      ##
+      # <EU002> Eu como usuário quero ser capaz de receber recomendações de música 
+      # Recomenda músicas aos usuários baseado no interesse e favoritas
       def recomend_by_interest
 
         c_user = User.find(params[:id])
